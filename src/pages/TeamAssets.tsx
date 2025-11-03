@@ -99,8 +99,10 @@ export default function TeamAssets() {
                   🔥更多英铁爆款
                 </a>
               </Button>
-              <Button size="sm" variant="outline">
-                👉英铁爆款SOP
+              <Button size="sm" variant="outline" asChild>
+                <a href="https://trip.larkenterprise.com/wiki/TYd7wjPR3imS2JkXWyKctkVrnzh" target="_blank" rel="noopener noreferrer">
+                  👉英铁爆款SOP
+                </a>
               </Button>
             </div>
           </TabsContent>

@@ -10,6 +10,9 @@ import { Badge } from "@/components/ui/badge";
 
 export default function TeamAssets() {
   const [selectedGroup, setSelectedGroup] = useState("英铁");
+  
+  const tabs = ["英铁", "西铁", "中港铁", "批量组"];
+  const tabIndex = tabs.indexOf(selectedGroup);
 
   // 爆款视频数据
   const viralVideos = {
@@ -51,12 +54,21 @@ export default function TeamAssets() {
 
         {/* 组标签切换 */}
         <Tabs value={selectedGroup} onValueChange={setSelectedGroup} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-6">
-            <TabsTrigger value="英铁" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">🇬🇧英铁</TabsTrigger>
-            <TabsTrigger value="西铁" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">🇪🇸西铁</TabsTrigger>
-            <TabsTrigger value="中港铁" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">中🇭🇰港铁</TabsTrigger>
-            <TabsTrigger value="批量组" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">🤖批量组</TabsTrigger>
-          </TabsList>
+          <div className="relative mb-6">
+            <TabsList className="grid w-full grid-cols-4">
+              <TabsTrigger value="英铁">🇬🇧英铁</TabsTrigger>
+              <TabsTrigger value="西铁">🇪🇸西铁</TabsTrigger>
+              <TabsTrigger value="中港铁">中🇭🇰港铁</TabsTrigger>
+              <TabsTrigger value="批量组">🤖批量组</TabsTrigger>
+            </TabsList>
+            <div 
+              className="absolute bottom-0 h-0.5 bg-primary transition-all duration-300 ease-in-out"
+              style={{
+                left: `${tabIndex * 25}%`,
+                width: '25%',
+              }}
+            />
+          </div>
 
           <TabsContent value="英铁" className="mt-0">
             <div className="grid grid-cols-3 gap-4 mb-4">

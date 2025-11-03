@@ -40,7 +40,7 @@ export default function TeamAssets() {
       {/* 爆款库 - 主要板块 */}
       <Card className="bg-gradient-card p-6">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-lg font-bold flex items-center gap-2">
+          <h2 className="text-base font-bold flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-primary" />
             爆款视频库
           </h2>
@@ -52,10 +52,10 @@ export default function TeamAssets() {
         {/* 组标签切换 */}
         <Tabs value={selectedGroup} onValueChange={setSelectedGroup} className="w-full">
           <TabsList className="grid w-full grid-cols-4 mb-6">
-            <TabsTrigger value="英铁">英铁</TabsTrigger>
-            <TabsTrigger value="西铁">西铁</TabsTrigger>
-            <TabsTrigger value="中港铁">中港铁</TabsTrigger>
-            <TabsTrigger value="批量组">批量组</TabsTrigger>
+            <TabsTrigger value="英铁" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">🇬🇧英铁</TabsTrigger>
+            <TabsTrigger value="西铁" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">🇪🇸西铁</TabsTrigger>
+            <TabsTrigger value="中港铁" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">中🇭🇰港铁</TabsTrigger>
+            <TabsTrigger value="批量组" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">🤖批量组</TabsTrigger>
           </TabsList>
 
           <TabsContent value="英铁" className="mt-0">
@@ -75,18 +75,18 @@ export default function TeamAssets() {
                   </div>
                   <div className="p-3">
                     <h4 className="font-medium text-sm mb-2">{video.title}</h4>
-                    <div className="space-y-1 text-xs text-muted-foreground">
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <Video className="w-3 h-3" />
-                        <span>播放数 {video.播放数}</span>
+                        <span>{video.播放数}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <Heart className="w-3 h-3" />
-                        <span>点赞 {video.点赞}</span>
+                        <span>{video.点赞}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <MessageCircle className="w-3 h-3" />
-                        <span>评论数 {video.评论数}</span>
+                        <span>{video.评论数}</span>
                       </div>
                     </div>
                   </div>
@@ -119,18 +119,18 @@ export default function TeamAssets() {
                   </div>
                   <div className="p-3">
                     <h4 className="font-medium text-sm mb-2">{video.title}</h4>
-                    <div className="space-y-1 text-xs text-muted-foreground">
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <Video className="w-3 h-3" />
-                        <span>播放数 {video.播放数}</span>
+                        <span>{video.播放数}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <Heart className="w-3 h-3" />
-                        <span>点赞 {video.点赞}</span>
+                        <span>{video.点赞}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <MessageCircle className="w-3 h-3" />
-                        <span>评论数 {video.评论数}</span>
+                        <span>{video.评论数}</span>
                       </div>
                     </div>
                   </div>
@@ -159,18 +159,18 @@ export default function TeamAssets() {
                   </div>
                   <div className="p-3">
                     <h4 className="font-medium text-sm mb-2">{video.title}</h4>
-                    <div className="space-y-1 text-xs text-muted-foreground">
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <Video className="w-3 h-3" />
-                        <span>播放数 {video.播放数}</span>
+                        <span>{video.播放数}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <Heart className="w-3 h-3" />
-                        <span>点赞 {video.点赞}</span>
+                        <span>{video.点赞}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <MessageCircle className="w-3 h-3" />
-                        <span>评论数 {video.评论数}</span>
+                        <span>{video.评论数}</span>
                       </div>
                     </div>
                   </div>
@@ -199,18 +199,18 @@ export default function TeamAssets() {
                   </div>
                   <div className="p-3">
                     <h4 className="font-medium text-sm mb-2">{video.title}</h4>
-                    <div className="space-y-1 text-xs text-muted-foreground">
+                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <Video className="w-3 h-3" />
-                        <span>播放数 {video.播放数}</span>
+                        <span>{video.播放数}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <Heart className="w-3 h-3" />
-                        <span>点赞 {video.点赞}</span>
+                        <span>{video.点赞}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <MessageCircle className="w-3 h-3" />
-                        <span>评论数 {video.评论数}</span>
+                        <span>{video.评论数}</span>
                       </div>
                     </div>
                   </div>
@@ -229,51 +229,28 @@ export default function TeamAssets() {
         </Tabs>
       </Card>
 
-      {/* 其他功能板块 */}
-      <div className="grid grid-cols-2 gap-4">
-        {/* 提示词生成器 */}
-        <Card className="bg-gradient-card p-4">
-          <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-primary" />
-            提示词生成器
-          </h3>
-          <div className="space-y-3">
-            <div>
-              <label className="text-xs text-muted-foreground mb-1 block">场景描述</label>
-              <Input placeholder="例如：小红书种草文案" className="bg-background text-sm" />
+      {/* 团队知识库 */}
+      <Card className="bg-gradient-card p-6">
+        <h3 className="text-base font-bold mb-4 flex items-center gap-2">
+          <Users className="w-5 h-5 text-primary" />
+          团队知识库
+        </h3>
+        <div className="grid grid-cols-3 gap-3">
+          {[
+            { title: "🇬🇧英铁冷知识库", desc: "英国铁路相关知识" },
+            { title: "🔥英铁爆款脚本", desc: "高播放量脚本合集" },
+            { title: "💰英铁钩子库", desc: "英铁钩子素材库" },
+            { title: "🇪🇸西铁冷知识库", desc: "西班牙铁路相关知识" },
+            { title: "🔥西铁爆款脚本合集", desc: "精选爆款内容" },
+            { title: "💰西铁钩子库", desc: "西铁钩子素材库" },
+          ].map((knowledge) => (
+            <div key={knowledge.title} className="p-3 bg-secondary/50 rounded hover:bg-secondary cursor-pointer transition-colors">
+              <h5 className="font-medium text-sm mb-1">{knowledge.title}</h5>
+              <p className="text-xs text-muted-foreground">{knowledge.desc}</p>
             </div>
-            <div>
-              <label className="text-xs text-muted-foreground mb-1 block">目标受众</label>
-              <Input placeholder="例如：18-35岁女性" className="bg-background text-sm" />
-            </div>
-            <Button className="w-full bg-gradient-primary text-sm">
-              <Sparkles className="w-4 h-4 mr-2" />
-              生成提示词
-            </Button>
-          </div>
-        </Card>
-
-        {/* 团队知识库 */}
-        <Card className="bg-gradient-card p-4">
-          <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
-            <Users className="w-4 h-4 text-primary" />
-            团队知识库
-          </h3>
-          <div className="grid grid-cols-2 gap-2">
-            {[
-              { title: "🇬🇧英铁冷知识库", desc: "英国铁路相关知识" },
-              { title: "🔥英铁爆款脚本", desc: "高播放量脚本合集" },
-              { title: "🇪🇸西铁冷知识库", desc: "西班牙铁路相关知识" },
-              { title: "🔥西铁爆款脚本合集", desc: "精选爆款内容" },
-            ].map((knowledge) => (
-              <div key={knowledge.title} className="p-3 bg-secondary/50 rounded hover:bg-secondary cursor-pointer transition-colors">
-                <h5 className="font-medium text-sm mb-1">{knowledge.title}</h5>
-                <p className="text-xs text-muted-foreground">{knowledge.desc}</p>
-              </div>
-            ))}
-          </div>
-        </Card>
-      </div>
+          ))}
+        </div>
+      </Card>
     </div>
   );
 }

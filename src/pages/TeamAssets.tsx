@@ -58,47 +58,165 @@ export default function TeamAssets() {
             <TabsTrigger value="批量组">批量组</TabsTrigger>
           </TabsList>
 
-          {Object.entries(viralVideos).map(([group, videos]) => (
-            <TabsContent key={group} value={group} className="mt-0">
-              <div className="grid grid-cols-3 gap-4 mb-4">
-                {videos.map((video) => (
-                  <Card 
-                    key={video.id} 
-                    className="bg-secondary/50 hover:bg-secondary transition-colors cursor-pointer overflow-hidden"
-                  >
-                    <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center rounded-t-lg">
-                      <Play className="w-12 h-12 text-primary/50" />
-                    </div>
-                    <div className="p-3">
-                      <h4 className="font-medium text-sm mb-2">{video.title}</h4>
-                      <div className="space-y-1 text-xs text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <Video className="w-3 h-3" />
-                          <span>播放数 {video.播放数}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Heart className="w-3 h-3" />
-                          <span>点赞 {video.点赞}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <MessageCircle className="w-3 h-3" />
-                          <span>评论数 {video.评论数}</span>
-                        </div>
+          <TabsContent value="英铁" className="mt-0">
+            <div className="grid grid-cols-3 gap-4 mb-4">
+              {viralVideos.英铁.map((video) => (
+                <Card 
+                  key={video.id} 
+                  className="bg-secondary/50 hover:bg-secondary transition-colors cursor-pointer overflow-hidden"
+                >
+                  <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center rounded-t-lg">
+                    <Play className="w-12 h-12 text-primary/50" />
+                  </div>
+                  <div className="p-3">
+                    <h4 className="font-medium text-sm mb-2">{video.title}</h4>
+                    <div className="space-y-1 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <Video className="w-3 h-3" />
+                        <span>播放数 {video.播放数}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Heart className="w-3 h-3" />
+                        <span>点赞 {video.点赞}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MessageCircle className="w-3 h-3" />
+                        <span>评论数 {video.评论数}</span>
                       </div>
                     </div>
-                  </Card>
-                ))}
-              </div>
-              <div className="flex justify-end gap-2 pt-2">
-                <Button size="sm" variant="outline">
-                  🔥更多爆款视频
-                </Button>
-                <Button size="sm" variant="outline">
-                  👉爆款视频SOP
-                </Button>
-              </div>
-            </TabsContent>
-          ))}
+                  </div>
+                </Card>
+              ))}
+            </div>
+            <div className="flex justify-end gap-2 pt-2">
+              <Button size="sm" variant="outline">
+                🔥更多英铁爆款
+              </Button>
+              <Button size="sm" variant="outline">
+                👉英铁爆款SOP
+              </Button>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="西铁" className="mt-0">
+            <div className="grid grid-cols-3 gap-4 mb-4">
+              {viralVideos.西铁.map((video) => (
+                <Card 
+                  key={video.id} 
+                  className="bg-secondary/50 hover:bg-secondary transition-colors cursor-pointer overflow-hidden"
+                >
+                  <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center rounded-t-lg">
+                    <Play className="w-12 h-12 text-primary/50" />
+                  </div>
+                  <div className="p-3">
+                    <h4 className="font-medium text-sm mb-2">{video.title}</h4>
+                    <div className="space-y-1 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <Video className="w-3 h-3" />
+                        <span>播放数 {video.播放数}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Heart className="w-3 h-3" />
+                        <span>点赞 {video.点赞}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MessageCircle className="w-3 h-3" />
+                        <span>评论数 {video.评论数}</span>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+            <div className="flex justify-end gap-2 pt-2">
+              <Button size="sm" variant="outline">
+                🔥更多西铁爆款
+              </Button>
+              <Button size="sm" variant="outline">
+                👉西铁爆款SOP
+              </Button>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="中港铁" className="mt-0">
+            <div className="grid grid-cols-3 gap-4 mb-4">
+              {viralVideos.中港铁.map((video) => (
+                <Card 
+                  key={video.id} 
+                  className="bg-secondary/50 hover:bg-secondary transition-colors cursor-pointer overflow-hidden"
+                >
+                  <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center rounded-t-lg">
+                    <Play className="w-12 h-12 text-primary/50" />
+                  </div>
+                  <div className="p-3">
+                    <h4 className="font-medium text-sm mb-2">{video.title}</h4>
+                    <div className="space-y-1 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <Video className="w-3 h-3" />
+                        <span>播放数 {video.播放数}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Heart className="w-3 h-3" />
+                        <span>点赞 {video.点赞}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MessageCircle className="w-3 h-3" />
+                        <span>评论数 {video.评论数}</span>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+            <div className="flex justify-end gap-2 pt-2">
+              <Button size="sm" variant="outline">
+                🔥更多中港铁爆款
+              </Button>
+              <Button size="sm" variant="outline">
+                👉中港铁爆款SOP
+              </Button>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="批量组" className="mt-0">
+            <div className="grid grid-cols-3 gap-4 mb-4">
+              {viralVideos.批量组.map((video) => (
+                <Card 
+                  key={video.id} 
+                  className="bg-secondary/50 hover:bg-secondary transition-colors cursor-pointer overflow-hidden"
+                >
+                  <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center rounded-t-lg">
+                    <Play className="w-12 h-12 text-primary/50" />
+                  </div>
+                  <div className="p-3">
+                    <h4 className="font-medium text-sm mb-2">{video.title}</h4>
+                    <div className="space-y-1 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <Video className="w-3 h-3" />
+                        <span>播放数 {video.播放数}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Heart className="w-3 h-3" />
+                        <span>点赞 {video.点赞}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MessageCircle className="w-3 h-3" />
+                        <span>评论数 {video.评论数}</span>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+            <div className="flex justify-end gap-2 pt-2">
+              <Button size="sm" variant="outline">
+                🔥更多AI批量组爆款
+              </Button>
+              <Button size="sm" variant="outline">
+                👉AI批量爆款SOP
+              </Button>
+            </div>
+          </TabsContent>
         </Tabs>
       </Card>
 

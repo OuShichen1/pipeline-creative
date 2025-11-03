@@ -253,21 +253,22 @@ export default function TeamAssets() {
           </div>
         </Card>
 
-        {/* 团队上下文 */}
+        {/* 团队知识库 */}
         <Card className="bg-gradient-card p-4">
           <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
             <Users className="w-4 h-4 text-primary" />
-            团队上下文
+            团队知识库
           </h3>
-          <div className="space-y-2">
+          <div className="grid grid-cols-2 gap-2">
             {[
-              { title: "品牌调性", desc: "年轻、活力、科技感" },
-              { title: "产品卖点", desc: "AI驱动、高效、易用" },
-              { title: "目标用户", desc: "25-35岁都市白领" },
-            ].map((context) => (
-              <div key={context.title} className="p-3 bg-secondary/50 rounded hover:bg-secondary cursor-pointer">
-                <h5 className="font-medium text-sm mb-1">{context.title}</h5>
-                <p className="text-xs text-muted-foreground">{context.desc}</p>
+              { title: "🇬🇧英铁冷知识库", desc: "英国铁路相关知识" },
+              { title: "🔥英铁爆款脚本", desc: "高播放量脚本合集" },
+              { title: "🇪🇸西铁冷知识库", desc: "西班牙铁路相关知识" },
+              { title: "🔥西铁爆款脚本合集", desc: "精选爆款内容" },
+            ].map((knowledge) => (
+              <div key={knowledge.title} className="p-3 bg-secondary/50 rounded hover:bg-secondary cursor-pointer transition-colors">
+                <h5 className="font-medium text-sm mb-1">{knowledge.title}</h5>
+                <p className="text-xs text-muted-foreground">{knowledge.desc}</p>
               </div>
             ))}
           </div>

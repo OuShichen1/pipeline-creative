@@ -35,7 +35,7 @@ export function PipelineNav() {
                 )}
               >
                 <Icon className={cn("w-6 h-6", isActive && "animate-pulse")} />
-                <span className="text-xs font-medium">{stage.label}</span>
+                <span className="text-base font-medium">{stage.label}</span>
               </button>
 
               {index < stages.length - 1 && (

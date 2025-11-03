@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 
 export default function TeamAssets() {
   const [selectedGroup, setSelectedGroup] = useState("英铁");
@@ -39,7 +40,7 @@ export default function TeamAssets() {
     <div className="flex flex-col gap-4 overflow-y-auto p-4">
       {/* 爆款库 - 主要板块 */}
       <Card className="bg-gradient-card p-6">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-primary" />
             爆款视频库
@@ -48,6 +49,7 @@ export default function TeamAssets() {
             + 添加爆款
           </Button>
         </div>
+        <Separator className="mb-6" />
 
         {/* 组标签切换 */}
         <Tabs value={selectedGroup} onValueChange={setSelectedGroup} className="w-full">
@@ -231,10 +233,11 @@ export default function TeamAssets() {
 
       {/* 团队知识库 */}
       <Card className="bg-gradient-card p-6">
-        <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+        <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
           <Users className="w-5 h-5 text-primary" />
           团队知识库
         </h3>
+        <Separator className="mb-4" />
         <div className="grid grid-cols-3 gap-3">
           {[
             { title: "🇬🇧英铁冷知识库", desc: "英国铁路相关知识" },

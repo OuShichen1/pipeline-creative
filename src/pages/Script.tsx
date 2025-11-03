@@ -8,17 +8,17 @@ import { Badge } from "@/components/ui/badge";
 
 export default function Script() {
   return (
-    <div className="flex flex-col gap-4 h-full">
-      <div className="grid grid-cols-12 gap-4 flex-1 min-h-0">
+    <div className="flex flex-col gap-4 h-full overflow-hidden p-4">
+      <div className="grid grid-cols-12 gap-4 flex-1 min-h-0 overflow-hidden">
       {/* Left Column - File Manager */}
-      <div className="col-span-2">
-        <Card className="h-full bg-gradient-card p-4">
+      <div className="col-span-2 overflow-hidden">
+        <Card className="h-full bg-gradient-card p-4 flex flex-col overflow-hidden">
           <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
             <FolderOpen className="w-4 h-4 text-primary" />
             脚本文件
           </h3>
 
-          <ScrollArea className="h-[calc(100%-8rem)]">
+          <ScrollArea className="flex-1 min-h-0">
             <div className="space-y-2">
               {["产品A脚本", "团队模板", "草稿箱"].map((folder) => (
                 <div key={folder} className="space-y-1">
@@ -52,8 +52,8 @@ export default function Script() {
       </div>
 
       {/* Center Column - Editor */}
-      <div className="col-span-7">
-        <Card className="h-full bg-gradient-card p-6">
+      <div className="col-span-7 overflow-hidden">
+        <Card className="h-full bg-gradient-card p-6 flex flex-col overflow-hidden">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold">脚本编辑器</h3>
             <div className="flex gap-2">
@@ -69,7 +69,7 @@ export default function Script() {
 
           <Textarea
             placeholder="开始撰写你的脚本..."
-            className="min-h-[calc(100%-5rem)] bg-secondary border-border font-mono"
+            className="flex-1 min-h-0 bg-secondary border-border font-mono resize-none"
             defaultValue={`# 产品介绍脚本
 
 ## 开场白
@@ -87,15 +87,15 @@ export default function Script() {
       </div>
 
       {/* Right Column - AI Assistant */}
-      <div className="col-span-3">
-        <Card className="h-full bg-gradient-card p-4">
+      <div className="col-span-3 overflow-hidden">
+        <Card className="h-full bg-gradient-card p-4 flex flex-col overflow-hidden">
           <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-primary" />
             AI 助手
           </h3>
 
-          <Tabs defaultValue="factcheck" className="h-[calc(100%-2rem)]">
-            <TabsList className="grid w-full grid-cols-2 bg-secondary">
+          <Tabs defaultValue="factcheck" className="flex-1 min-h-0 flex flex-col">
+            <TabsList className="grid w-full grid-cols-2 bg-secondary shrink-0">
               <TabsTrigger value="factcheck" className="text-xs">
                 核查
               </TabsTrigger>
@@ -104,7 +104,7 @@ export default function Script() {
               </TabsTrigger>
             </TabsList>
 
-            <ScrollArea className="h-[calc(100%-3rem)] mt-4">
+            <ScrollArea className="flex-1 min-h-0 mt-4">
               <TabsContent value="factcheck" className="space-y-3 mt-0">
                 <Card className="p-3 bg-secondary">
                   <div className="flex items-start gap-2">
@@ -173,12 +173,12 @@ export default function Script() {
       </div>
 
       {/* 风险提示 - 底部全宽 */}
-      <Card className="bg-gradient-card p-4">
+      <Card className="bg-gradient-card p-4 shrink-0">
         <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
           <AlertTriangle className="w-4 h-4 text-destructive" />
           风险提示
         </h3>
-        <ScrollArea className="h-[200px]">
+        <ScrollArea className="h-[180px]">
           <div className="grid grid-cols-4 gap-3 pr-4">
             {[
               { 

@@ -9,6 +9,7 @@ import Script from "./pages/Script";
 import Production from "./pages/Production";
 import Review from "./pages/Review";
 import Analytics from "./pages/Analytics";
+import TeamAssets from "./pages/TeamAssets";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="production" element={<Production />} />
             <Route path="review" element={<Review />} />
             <Route path="analytics" element={<Analytics />} />
+            <Route path="assets" element={<TeamAssets />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

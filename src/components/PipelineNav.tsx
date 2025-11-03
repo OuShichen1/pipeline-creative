@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { Lightbulb, FileText, Video, CheckCircle, BarChart3 } from "lucide-react";
+import { Lightbulb, FileText, Video, CheckCircle, BarChart3, Database } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const stages = [
@@ -8,6 +8,7 @@ const stages = [
   { id: "production", label: "素材/制作", icon: Video, path: "/production" },
   { id: "review", label: "审核", icon: CheckCircle, path: "/review" },
   { id: "analytics", label: "复盘", icon: BarChart3, path: "/analytics" },
+  { id: "assets", label: "团队资产库", icon: Database, path: "/assets" },
 ];
 
 export function PipelineNav() {

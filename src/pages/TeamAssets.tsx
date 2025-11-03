@@ -46,7 +46,7 @@ export default function TeamAssets() {
           团队知识库
         </h3>
         <Separator className="mb-4" />
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-3 gap-3 mb-4">
           {[
             { title: "🇬🇧英铁冷知识库", desc: "英国铁路相关知识" },
             { title: "🔥英铁爆款脚本", desc: "高播放量脚本合集" },
@@ -60,6 +60,11 @@ export default function TeamAssets() {
               <p className="text-xs text-muted-foreground">{knowledge.desc}</p>
             </div>
           ))}
+        </div>
+        <div className="flex justify-end">
+          <Button size="sm" variant="outline">
+            更多
+          </Button>
         </div>
       </Card>
 

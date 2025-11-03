@@ -30,8 +30,8 @@ export function PipelineNav() {
                   "flex flex-col items-center justify-center gap-[1px] w-full py-2 px-3 rounded-lg transition-all scale-90",
                   "hover:bg-secondary/50",
                   isActive
-                    ? "bg-primary text-primary-foreground shadow-glow"
-                    : "text-muted-foreground"
+                    ? "border-2 border-primary text-primary shadow-[0_0_15px_rgba(96,165,250,0.5),inset_0_0_15px_rgba(96,165,250,0.1)]"
+                    : "text-muted-foreground border-2 border-transparent"
                 )}
               >
                 <Icon className={cn("w-8 h-8", isActive && "animate-pulse")} />

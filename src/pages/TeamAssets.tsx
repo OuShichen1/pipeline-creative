@@ -64,18 +64,18 @@ export default function TeamAssets() {
 
           {Object.entries(viralVideos).map(([group, videos]) => (
             <TabsContent key={group} value={group} className="mt-0">
-              <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="grid grid-cols-4 gap-4 mb-4">
                 {videos.map((video) => (
                   <Card 
                     key={video.id} 
                     className="bg-secondary/50 hover:bg-secondary transition-colors cursor-pointer overflow-hidden"
                   >
-                    <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                    <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center rounded-t-lg">
                       <Play className="w-12 h-12 text-primary/50" />
                     </div>
-                    <div className="p-4">
-                      <h4 className="font-medium mb-3">{video.title}</h4>
-                      <div className="flex items-center justify-between text-xs text-muted-foreground">
+                    <div className="p-3">
+                      <h4 className="font-medium text-sm mb-2">{video.title}</h4>
+                      <div className="space-y-1 text-xs text-muted-foreground">
                         <div className="flex items-center gap-1">
                           <Video className="w-3 h-3" />
                           <span>播放数 {video.播放数}</span>

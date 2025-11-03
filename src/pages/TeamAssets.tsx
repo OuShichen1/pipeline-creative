@@ -76,15 +76,16 @@ export default function TeamAssets() {
         </div>
         <Separator className="mb-6" />
 
-        {/* 组标签切换 */}
-        <Tabs value={selectedGroup} onValueChange={setSelectedGroup} className="w-full">
-          <TabsList className="grid w-full grid-cols-5 mb-6">
-            <TabsTrigger value="英铁" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">🇬🇧英铁</TabsTrigger>
-            <TabsTrigger value="西铁" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">🇪🇸西铁</TabsTrigger>
-            <TabsTrigger value="中港铁" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">中🇭🇰港铁</TabsTrigger>
-            <TabsTrigger value="批量组" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">🤖批量组</TabsTrigger>
-            <TabsTrigger value="爆款拆解" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">💡爆款拆解</TabsTrigger>
-          </TabsList>
+        {/* 主内容区域 - 左右分栏 */}
+        <div className="grid grid-cols-[2fr,1fr] gap-4">
+          {/* 左侧：组标签切换 */}
+          <Tabs value={selectedGroup} onValueChange={setSelectedGroup} className="w-full">
+            <TabsList className="grid w-full grid-cols-4 mb-6">
+              <TabsTrigger value="英铁" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">🇬🇧英铁</TabsTrigger>
+              <TabsTrigger value="西铁" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">🇪🇸西铁</TabsTrigger>
+              <TabsTrigger value="中港铁" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">中🇭🇰港铁</TabsTrigger>
+              <TabsTrigger value="批量组" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">🤖批量组</TabsTrigger>
+            </TabsList>
 
           <TabsContent value="英铁" className="mt-0">
             <div className="grid grid-cols-3 gap-4 mb-4">
@@ -254,17 +255,15 @@ export default function TeamAssets() {
               </Button>
             </div>
           </TabsContent>
+          </Tabs>
 
-          <TabsContent value="爆款拆解" className="mt-0">
-            <div className="min-h-[400px] bg-secondary/30 rounded-lg border-2 border-dashed border-primary/20 flex items-center justify-center p-8">
-              <div className="text-center">
-                <Sparkles className="w-12 h-12 text-primary/50 mx-auto mb-4" />
-                <h4 className="text-lg font-medium mb-2">爆款内容拆解</h4>
-                <p className="text-sm text-muted-foreground">即将上线，敬请期待</p>
-              </div>
-            </div>
-          </TabsContent>
-        </Tabs>
+          {/* 右侧：爆款内容拆解 - 固定显示 */}
+          <div className="bg-secondary/30 rounded-lg border-2 border-dashed border-primary/20 p-6 flex flex-col items-center justify-center min-h-[500px]">
+            <Sparkles className="w-12 h-12 text-primary/50 mb-4" />
+            <h4 className="text-lg font-medium mb-2">💡爆款内容拆解</h4>
+            <p className="text-sm text-muted-foreground text-center">即将上线，敬请期待</p>
+          </div>
+        </div>
       </Card>
       </div>
     </div>

@@ -61,28 +61,28 @@ export default function TeamAssets() {
           {Object.entries(viralVideos).map(([group, videos]) => (
             <TabsContent key={group} value={group} className="mt-0 flex flex-col flex-1 min-h-0">
               <ScrollArea className="flex-1">
-                <div className="grid grid-cols-3 gap-3 mb-3 pr-4">
+                <div className="grid grid-cols-2 gap-4 mb-3 pr-4">
                 {videos.map((video) => (
                   <Card 
                     key={video.id} 
                     className="bg-secondary/50 hover:bg-secondary transition-colors cursor-pointer overflow-hidden"
                   >
-                    <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center rounded-t-lg">
-                      <Play className="w-8 h-8 text-primary/50" />
+                    <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center rounded-t-lg min-h-[200px]">
+                      <Play className="w-12 h-12 text-primary/50" />
                     </div>
-                    <div className="p-2">
-                      <h4 className="font-medium text-xs mb-1.5">{video.title}</h4>
-                      <div className="space-y-0.5 text-[11px] text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <Video className="w-2.5 h-2.5" />
+                    <div className="p-3">
+                      <h4 className="font-medium text-sm mb-2">{video.title}</h4>
+                      <div className="space-y-1 text-xs text-muted-foreground">
+                        <div className="flex items-center gap-1.5">
+                          <Video className="w-3 h-3" />
                           <span>播放数 {video.播放数}</span>
                         </div>
-                        <div className="flex items-center gap-1">
-                          <Heart className="w-2.5 h-2.5" />
+                        <div className="flex items-center gap-1.5">
+                          <Heart className="w-3 h-3" />
                           <span>点赞 {video.点赞}</span>
                         </div>
-                        <div className="flex items-center gap-1">
-                          <MessageCircle className="w-2.5 h-2.5" />
+                        <div className="flex items-center gap-1.5">
+                          <MessageCircle className="w-3 h-3" />
                           <span>评论数 {video.评论数}</span>
                         </div>
                       </div>

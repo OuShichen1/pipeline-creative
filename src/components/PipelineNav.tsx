@@ -27,7 +27,7 @@ export function PipelineNav() {
               <button
                 onClick={() => navigate(stage.path)}
                 className={cn(
-                  "flex flex-col items-center justify-center gap-2 w-full py-2 px-4 rounded-lg transition-all",
+                  "flex flex-col items-center justify-center gap-[1px] w-full pt-1 pb-2 px-4 rounded-lg transition-all",
                   "hover:bg-secondary/50",
                   isActive
                     ? "bg-primary text-primary-foreground shadow-glow"

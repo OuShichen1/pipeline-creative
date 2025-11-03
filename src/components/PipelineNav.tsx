@@ -34,7 +34,7 @@ export function PipelineNav() {
                     : "text-muted-foreground"
                 )}
               >
-                <Icon className={cn("w-6 h-6", isActive && "animate-pulse")} />
+                <Icon className={cn("w-8 h-8", isActive && "animate-pulse")} />
                 <span className="text-base font-medium">{stage.label}</span>
               </button>
 

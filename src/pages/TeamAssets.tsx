@@ -64,6 +64,11 @@ export default function TeamAssets() {
                 <Card 
                   key={video.id} 
                   className="bg-secondary/50 hover:bg-secondary transition-colors cursor-pointer overflow-hidden"
+                  onClick={() => {
+                    if (video.id === 1) {
+                      window.open('https://www.tiktok.com/@locomotiveaa355/video/7538389421914148118', '_blank', 'noopener,noreferrer');
+                    }
+                  }}
                 >
                   <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center rounded-t-lg">
                     <Play className="w-12 h-12 text-primary/50" />

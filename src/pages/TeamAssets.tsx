@@ -272,35 +272,54 @@ export default function TeamAssets() {
             <AlertTriangle className="w-4 h-4 text-destructive" />
             风险提示
           </h3>
-          <div className="space-y-2">
-            {[
-              { level: "高", title: "竞品法律纠纷", date: "3月15日" },
-              { level: "中", title: "行业监管政策", date: "3月12日" },
-              { level: "低", title: "用户投诉趋势", date: "3月10日" },
-            ].map((risk, idx) => (
-              <div
-                key={idx}
-                className={`p-3 rounded ${
-                  risk.level === "高"
-                    ? "bg-destructive/10 border border-destructive/30"
-                    : risk.level === "中"
-                    ? "bg-yellow-500/10 border border-yellow-500/30"
-                    : "bg-secondary/50"
-                }`}
-              >
-                <div className="flex items-center justify-between mb-1">
-                  <Badge
-                    variant={risk.level === "高" ? "destructive" : "secondary"}
-                    className="text-xs"
-                  >
-                    {risk.level}风险
-                  </Badge>
-                  <span className="text-xs text-muted-foreground">{risk.date}</span>
+          <ScrollArea className="h-[400px]">
+            <div className="space-y-2 pr-4">
+              {[
+                { 
+                  level: "高", 
+                  title: "PR事件 - 英铁记者恶意解读", 
+                  date: "10月21日",
+                  details: [
+                    "记者恶意解读：记者把TrainPal\"车窗门一旦关闭，车票就会瞬间失去商业价值\"的话术，恶意解读成\"TrainPal引导大家违法逃票\"，近期会在《铁路杂志》发布文章。",
+                    "视频存在法律风险：视频的内容尺度、未授权的人脸素材等存在法律风险，PR和法务担心社媒转载和监管介入，所以先下架相关视频防止影响扩大。",
+                    "历史参考：2025年7月23日晚也曾因PR事件屏蔽内容，可能导致数据不够。7月25日曾暂停发布内容，并计划后续拉群审核视频后再发。"
+                  ]
+                },
+                { level: "高", title: "竞品法律纠纷", date: "3月15日" },
+                { level: "中", title: "行业监管政策", date: "3月12日" },
+                { level: "低", title: "用户投诉趋势", date: "3月10日" },
+              ].map((risk, idx) => (
+                <div
+                  key={idx}
+                  className={`p-3 rounded ${
+                    risk.level === "高"
+                      ? "bg-destructive/10 border border-destructive/30"
+                      : risk.level === "中"
+                      ? "bg-yellow-500/10 border border-yellow-500/30"
+                      : "bg-secondary/50"
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <Badge
+                      variant={risk.level === "高" ? "destructive" : "secondary"}
+                      className="text-xs"
+                    >
+                      {risk.level}风险
+                    </Badge>
+                    <span className="text-xs text-muted-foreground">{risk.date}</span>
+                  </div>
+                  <p className="text-sm font-medium mb-2">{risk.title}</p>
+                  {risk.details && (
+                    <div className="space-y-2 text-xs text-muted-foreground">
+                      {risk.details.map((detail, detailIdx) => (
+                        <p key={detailIdx} className="leading-relaxed">{detail}</p>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                <p className="text-sm font-medium">{risk.title}</p>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollArea>
         </Card>
       </div>
     </div>

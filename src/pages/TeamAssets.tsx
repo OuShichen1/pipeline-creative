@@ -37,7 +37,8 @@ export default function TeamAssets() {
   };
 
   return (
-    <div className="flex flex-col gap-4 overflow-y-auto p-4">
+    <div className="h-full overflow-y-auto">
+      <div className="flex flex-col gap-4 p-4">
       {/* 爆款库 - 主要板块 */}
       <Card className="bg-gradient-card p-6">
         <div className="flex items-center justify-between mb-4">
@@ -254,6 +255,7 @@ export default function TeamAssets() {
           ))}
         </div>
       </Card>
+      </div>
     </div>
   );
 }

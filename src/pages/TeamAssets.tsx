@@ -36,66 +36,66 @@ export default function TeamAssets() {
   };
 
   return (
-    <div className="grid grid-rows-[1fr_1fr] gap-4 h-full p-4">
+    <div className="grid grid-rows-[1fr_2fr] gap-4 h-full p-4">
       {/* 爆款库 - 主要板块 */}
-      <Card className="bg-gradient-card p-4 flex flex-col overflow-hidden">
-        <div className="flex items-center justify-between mb-3">
-          <h2 className="text-base font-bold flex items-center gap-2">
-            <TrendingUp className="w-4 h-4 text-primary" />
+      <Card className="bg-gradient-card p-3 overflow-hidden flex flex-col">
+        <div className="flex items-center justify-between mb-2">
+          <h2 className="text-sm font-bold flex items-center gap-2">
+            <TrendingUp className="w-3.5 h-3.5 text-primary" />
             爆款视频库
           </h2>
-          <Button size="sm" variant="outline">
+          <Button size="sm" variant="outline" className="h-6 text-xs">
             + 添加爆款
           </Button>
         </div>
 
         {/* 组标签切换 */}
-        <Tabs value={selectedGroup} onValueChange={setSelectedGroup} className="w-full flex flex-col flex-1 min-h-0">
-          <TabsList className="grid w-full grid-cols-4 mb-3 flex-shrink-0">
-            <TabsTrigger value="英铁">英铁</TabsTrigger>
-            <TabsTrigger value="西铁">西铁</TabsTrigger>
-            <TabsTrigger value="中港铁">中港铁</TabsTrigger>
-            <TabsTrigger value="批量组">批量组</TabsTrigger>
+        <Tabs value={selectedGroup} onValueChange={setSelectedGroup} className="w-full flex-1 flex flex-col min-h-0">
+          <TabsList className="grid w-full grid-cols-4 mb-2 h-8">
+            <TabsTrigger value="英铁" className="text-xs">英铁</TabsTrigger>
+            <TabsTrigger value="西铁" className="text-xs">西铁</TabsTrigger>
+            <TabsTrigger value="中港铁" className="text-xs">中港铁</TabsTrigger>
+            <TabsTrigger value="批量组" className="text-xs">批量组</TabsTrigger>
           </TabsList>
 
           {Object.entries(viralVideos).map(([group, videos]) => (
-            <TabsContent key={group} value={group} className="mt-0 flex flex-col flex-1 min-h-0">
+            <TabsContent key={group} value={group} className="mt-0 flex-1 flex flex-col min-h-0">
               <ScrollArea className="flex-1">
-                <div className="grid grid-cols-2 gap-4 mb-3 pr-4">
-                {videos.map((video) => (
-                  <Card 
-                    key={video.id} 
-                    className="bg-secondary/50 hover:bg-secondary transition-colors cursor-pointer overflow-hidden"
-                  >
-                    <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center rounded-t-lg min-h-[200px]">
-                      <Play className="w-12 h-12 text-primary/50" />
-                    </div>
-                    <div className="p-3">
-                      <h4 className="font-medium text-sm mb-2">{video.title}</h4>
-                      <div className="space-y-1 text-xs text-muted-foreground">
-                        <div className="flex items-center gap-1.5">
-                          <Video className="w-3 h-3" />
-                          <span>播放数 {video.播放数}</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <Heart className="w-3 h-3" />
-                          <span>点赞 {video.点赞}</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <MessageCircle className="w-3 h-3" />
-                          <span>评论数 {video.评论数}</span>
+                <div className="grid grid-cols-3 gap-2 mb-2">
+                  {videos.map((video) => (
+                    <Card 
+                      key={video.id} 
+                      className="bg-secondary/50 hover:bg-secondary transition-colors cursor-pointer overflow-hidden"
+                    >
+                      <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center rounded-t-lg">
+                        <Play className="w-6 h-6 text-primary/50" />
+                      </div>
+                      <div className="p-1.5">
+                        <h4 className="font-medium text-[10px] mb-1">{video.title}</h4>
+                        <div className="space-y-0.5 text-[9px] text-muted-foreground">
+                          <div className="flex items-center gap-1">
+                            <Video className="w-2 h-2" />
+                            <span>播放数 {video.播放数}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Heart className="w-2 h-2" />
+                            <span>点赞 {video.点赞}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <MessageCircle className="w-2 h-2" />
+                            <span>评论数 {video.评论数}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
+                    </Card>
+                  ))}
+                </div>
               </ScrollArea>
-              <div className="flex justify-end gap-2 pt-2 flex-shrink-0">
-                <Button size="sm" variant="outline">
+              <div className="flex justify-end gap-2 pt-1">
+                <Button size="sm" variant="outline" className="h-6 text-xs">
                   🔥更多爆款视频
                 </Button>
-                <Button size="sm" variant="outline">
+                <Button size="sm" variant="outline" className="h-6 text-xs">
                   👉爆款视频SOP
                 </Button>
               </div>

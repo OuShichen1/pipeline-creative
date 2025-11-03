@@ -16,26 +16,18 @@ export default function TeamAssets() {
     英铁: [
       { id: 1, title: "爆款视频1",播放数: "12.5万", 点赞: "8.9K", 评论数: "1.2K" },
       { id: 2, title: "爆款视频2", 播放数: "15.3万", 点赞: "10.2K", 评论数: "1.5K" },
-      { id: 3, title: "爆款视频3", 播放数: "9.8万", 点赞: "6.5K", 评论数: "890" },
-      { id: 4, title: "爆款视频4", 播放数: "18.2万", 点赞: "12.8K", 评论数: "2.1K" },
     ],
     西铁: [
       { id: 1, title: "爆款视频1", 播放数: "10.2万", 点赞: "7.3K", 评论数: "950" },
       { id: 2, title: "爆款视频2", 播放数: "14.5万", 点赞: "9.8K", 评论数: "1.3K" },
-      { id: 3, title: "爆款视频3", 播放数: "11.7万", 点赞: "8.1K", 评论数: "1.1K" },
-      { id: 4, title: "爆款视频4", 播放数: "16.8万", 点赞: "11.5K", 评论数: "1.8K" },
     ],
     中港铁: [
       { id: 1, title: "爆款视频1", 播放数: "13.6万", 点赞: "9.2K", 评论数: "1.4K" },
       { id: 2, title: "爆款视频2", 播放数: "17.9万", 点赞: "12.3K", 评论数: "2.0K" },
-      { id: 3, title: "爆款视频3", 播放数: "10.5万", 点赞: "7.8K", 评论数: "1.0K" },
-      { id: 4, title: "爆款视频4", 播放数: "19.2万", 点赞: "13.6K", 评论数: "2.3K" },
     ],
     批量组: [
       { id: 1, title: "爆款视频1", 播放数: "8.9万", 点赞: "5.6K", 评论数: "780" },
       { id: 2, title: "爆款视频2", 播放数: "12.3万", 点赞: "8.5K", 评论数: "1.2K" },
-      { id: 3, title: "爆款视频3", 播放数: "15.7万", 点赞: "10.9K", 评论数: "1.6K" },
-      { id: 4, title: "爆款视频4", 播放数: "11.4万", 点赞: "7.9K", 评论数: "1.1K" },
     ],
   };
 
@@ -64,7 +56,7 @@ export default function TeamAssets() {
 
           {Object.entries(viralVideos).map(([group, videos]) => (
             <TabsContent key={group} value={group} className="mt-0">
-              <div className="grid grid-cols-4 gap-4 mb-4">
+              <div className="grid grid-cols-2 gap-4 mb-4">
                 {videos.map((video) => (
                   <Card 
                     key={video.id} 
@@ -93,8 +85,13 @@ export default function TeamAssets() {
                   </Card>
                 ))}
               </div>
-              <div className="text-xs text-muted-foreground text-center pt-2">
-                各爆款视频-鼠标悬浮-点击可查看详情
+              <div className="flex items-center justify-between pt-2">
+                <div className="text-xs text-muted-foreground">
+                  各爆款视频-鼠标悬浮-点击可查看详情
+                </div>
+                <Button size="sm" variant="outline">
+                  爆款SOP👉
+                </Button>
               </div>
             </TabsContent>
           ))}

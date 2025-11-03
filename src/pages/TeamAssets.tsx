@@ -63,22 +63,22 @@ export default function TeamAssets() {
         </div>
       </Card>
 
-      {/* 爆款库 - 主要板块 */}
-      <Card className="bg-gradient-card p-6">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold flex items-center gap-2">
-            <TrendingUp className="w-5 h-5 text-primary" />
-            爆款视频库
-          </h2>
-          <Button size="sm" variant="outline">
-            + 添加爆款
-          </Button>
-        </div>
-        <Separator className="mb-6" />
+      {/* 主要板块 - 左右分栏 */}
+      <div className="grid grid-cols-[2fr,1fr] gap-4">
+        {/* 左侧：爆款视频库 */}
+        <Card className="bg-gradient-card p-6">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-bold flex items-center gap-2">
+              <TrendingUp className="w-5 h-5 text-primary" />
+              爆款视频库
+            </h2>
+            <Button size="sm" variant="outline">
+              + 添加爆款
+            </Button>
+          </div>
+          <Separator className="mb-6" />
 
-        {/* 主内容区域 - 左右分栏 */}
-        <div className="grid grid-cols-[2fr,1fr] gap-4">
-          {/* 左侧：组标签切换 */}
+          {/* 组标签切换 */}
           <Tabs value={selectedGroup} onValueChange={setSelectedGroup} className="w-full">
             <TabsList className="grid w-full grid-cols-4 mb-6">
               <TabsTrigger value="英铁" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">🇬🇧英铁</TabsTrigger>
@@ -104,19 +104,25 @@ export default function TeamAssets() {
                   </div>
                   <div className="p-3">
                     <h4 className="font-medium text-sm mb-2">{video.title}</h4>
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Video className="w-3 h-3" />
-                        <span>{video.播放数}</span>
+                    <div className="flex items-center justify-between text-xs text-muted-foreground">
+                      <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-1">
+                          <Video className="w-3 h-3" />
+                          <span>{video.播放数}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Heart className="w-3 h-3" />
+                          <span>{video.点赞}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <MessageCircle className="w-3 h-3" />
+                          <span>{video.评论数}</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Heart className="w-3 h-3" />
-                        <span>{video.点赞}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <MessageCircle className="w-3 h-3" />
-                        <span>{video.评论数}</span>
-                      </div>
+                      <Button size="sm" variant="default" className="h-6 px-3 rounded-full bg-primary text-primary-foreground text-xs flex items-center gap-1">
+                        <Sparkles className="w-3 h-3" />
+                        拆解
+                      </Button>
                     </div>
                   </div>
                 </Card>
@@ -148,19 +154,25 @@ export default function TeamAssets() {
                   </div>
                   <div className="p-3">
                     <h4 className="font-medium text-sm mb-2">{video.title}</h4>
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Video className="w-3 h-3" />
-                        <span>{video.播放数}</span>
+                    <div className="flex items-center justify-between text-xs text-muted-foreground">
+                      <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-1">
+                          <Video className="w-3 h-3" />
+                          <span>{video.播放数}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Heart className="w-3 h-3" />
+                          <span>{video.点赞}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <MessageCircle className="w-3 h-3" />
+                          <span>{video.评论数}</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Heart className="w-3 h-3" />
-                        <span>{video.点赞}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <MessageCircle className="w-3 h-3" />
-                        <span>{video.评论数}</span>
-                      </div>
+                      <Button size="sm" variant="default" className="h-6 px-3 rounded-full bg-primary text-primary-foreground text-xs flex items-center gap-1">
+                        <Sparkles className="w-3 h-3" />
+                        拆解
+                      </Button>
                     </div>
                   </div>
                 </Card>
@@ -188,19 +200,25 @@ export default function TeamAssets() {
                   </div>
                   <div className="p-3">
                     <h4 className="font-medium text-sm mb-2">{video.title}</h4>
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Video className="w-3 h-3" />
-                        <span>{video.播放数}</span>
+                    <div className="flex items-center justify-between text-xs text-muted-foreground">
+                      <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-1">
+                          <Video className="w-3 h-3" />
+                          <span>{video.播放数}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Heart className="w-3 h-3" />
+                          <span>{video.点赞}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <MessageCircle className="w-3 h-3" />
+                          <span>{video.评论数}</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Heart className="w-3 h-3" />
-                        <span>{video.点赞}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <MessageCircle className="w-3 h-3" />
-                        <span>{video.评论数}</span>
-                      </div>
+                      <Button size="sm" variant="default" className="h-6 px-3 rounded-full bg-primary text-primary-foreground text-xs flex items-center gap-1">
+                        <Sparkles className="w-3 h-3" />
+                        拆解
+                      </Button>
                     </div>
                   </div>
                 </Card>
@@ -228,19 +246,25 @@ export default function TeamAssets() {
                   </div>
                   <div className="p-3">
                     <h4 className="font-medium text-sm mb-2">{video.title}</h4>
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Video className="w-3 h-3" />
-                        <span>{video.播放数}</span>
+                    <div className="flex items-center justify-between text-xs text-muted-foreground">
+                      <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-1">
+                          <Video className="w-3 h-3" />
+                          <span>{video.播放数}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Heart className="w-3 h-3" />
+                          <span>{video.点赞}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <MessageCircle className="w-3 h-3" />
+                          <span>{video.评论数}</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Heart className="w-3 h-3" />
-                        <span>{video.点赞}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <MessageCircle className="w-3 h-3" />
-                        <span>{video.评论数}</span>
-                      </div>
+                      <Button size="sm" variant="default" className="h-6 px-3 rounded-full bg-primary text-primary-foreground text-xs flex items-center gap-1">
+                        <Sparkles className="w-3 h-3" />
+                        拆解
+                      </Button>
                     </div>
                   </div>
                 </Card>
@@ -256,15 +280,21 @@ export default function TeamAssets() {
             </div>
           </TabsContent>
           </Tabs>
+        </Card>
 
-          {/* 右侧：爆款内容拆解 - 固定显示 */}
+        {/* 右侧：爆款内容拆解 - 独立板块 */}
+        <Card className="bg-gradient-card p-6">
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-primary" />
+            爆款内容拆解
+          </h2>
+          <Separator className="mb-6" />
           <div className="bg-secondary/30 rounded-lg border-2 border-dashed border-primary/20 p-6 flex flex-col items-center justify-center min-h-[500px]">
             <Sparkles className="w-12 h-12 text-primary/50 mb-4" />
-            <h4 className="text-lg font-medium mb-2">💡爆款内容拆解</h4>
             <p className="text-sm text-muted-foreground text-center">即将上线，敬请期待</p>
           </div>
-        </div>
-      </Card>
+        </Card>
+      </div>
       </div>
     </div>
   );

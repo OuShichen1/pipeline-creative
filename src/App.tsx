@@ -22,7 +22,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainLayout />}>
-            <Route index element={<Navigate to="/topic" replace />} />
+            <Route index element={<Navigate to="/assets" replace />} />
             <Route path="topic" element={<Topic />} />
             <Route path="script" element={<Script />} />
             <Route path="production" element={<Production />} />

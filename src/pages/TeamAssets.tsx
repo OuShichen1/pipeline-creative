@@ -39,6 +39,30 @@ export default function TeamAssets() {
   return (
     <div className="h-full overflow-y-auto">
       <div className="flex flex-col gap-4 p-4">
+      {/* 团队知识库 */}
+      <Card className="bg-gradient-card p-6">
+        <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+          <Users className="w-5 h-5 text-primary" />
+          团队知识库
+        </h3>
+        <Separator className="mb-4" />
+        <div className="grid grid-cols-3 gap-3">
+          {[
+            { title: "🇬🇧英铁冷知识库", desc: "英国铁路相关知识" },
+            { title: "🔥英铁爆款脚本", desc: "高播放量脚本合集" },
+            { title: "💰英铁钩子库", desc: "英铁钩子素材库" },
+            { title: "🇪🇸西铁冷知识库", desc: "西班牙铁路相关知识" },
+            { title: "🔥西铁爆款脚本合集", desc: "精选爆款内容" },
+            { title: "💰西铁钩子库", desc: "西铁钩子素材库" },
+          ].map((knowledge) => (
+            <div key={knowledge.title} className="p-3 bg-secondary/50 rounded hover:bg-secondary cursor-pointer transition-colors">
+              <h5 className="font-medium text-sm mb-1">{knowledge.title}</h5>
+              <p className="text-xs text-muted-foreground">{knowledge.desc}</p>
+            </div>
+          ))}
+        </div>
+      </Card>
+
       {/* 爆款库 - 主要板块 */}
       <Card className="bg-gradient-card p-6">
         <div className="flex items-center justify-between mb-4">
@@ -54,11 +78,12 @@ export default function TeamAssets() {
 
         {/* 组标签切换 */}
         <Tabs value={selectedGroup} onValueChange={setSelectedGroup} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-6">
+          <TabsList className="grid w-full grid-cols-5 mb-6">
             <TabsTrigger value="英铁" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">🇬🇧英铁</TabsTrigger>
             <TabsTrigger value="西铁" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">🇪🇸西铁</TabsTrigger>
             <TabsTrigger value="中港铁" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">中🇭🇰港铁</TabsTrigger>
             <TabsTrigger value="批量组" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">🤖批量组</TabsTrigger>
+            <TabsTrigger value="爆款拆解" className="data-[state=active]:shadow-[0_0_15px_rgba(59,130,246,0.5)]">💡爆款拆解</TabsTrigger>
           </TabsList>
 
           <TabsContent value="英铁" className="mt-0">
@@ -229,31 +254,17 @@ export default function TeamAssets() {
               </Button>
             </div>
           </TabsContent>
-        </Tabs>
-      </Card>
 
-      {/* 团队知识库 */}
-      <Card className="bg-gradient-card p-6">
-        <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
-          <Users className="w-5 h-5 text-primary" />
-          团队知识库
-        </h3>
-        <Separator className="mb-4" />
-        <div className="grid grid-cols-3 gap-3">
-          {[
-            { title: "🇬🇧英铁冷知识库", desc: "英国铁路相关知识" },
-            { title: "🔥英铁爆款脚本", desc: "高播放量脚本合集" },
-            { title: "💰英铁钩子库", desc: "英铁钩子素材库" },
-            { title: "🇪🇸西铁冷知识库", desc: "西班牙铁路相关知识" },
-            { title: "🔥西铁爆款脚本合集", desc: "精选爆款内容" },
-            { title: "💰西铁钩子库", desc: "西铁钩子素材库" },
-          ].map((knowledge) => (
-            <div key={knowledge.title} className="p-3 bg-secondary/50 rounded hover:bg-secondary cursor-pointer transition-colors">
-              <h5 className="font-medium text-sm mb-1">{knowledge.title}</h5>
-              <p className="text-xs text-muted-foreground">{knowledge.desc}</p>
+          <TabsContent value="爆款拆解" className="mt-0">
+            <div className="min-h-[400px] bg-secondary/30 rounded-lg border-2 border-dashed border-primary/20 flex items-center justify-center p-8">
+              <div className="text-center">
+                <Sparkles className="w-12 h-12 text-primary/50 mx-auto mb-4" />
+                <h4 className="text-lg font-medium mb-2">爆款内容拆解</h4>
+                <p className="text-sm text-muted-foreground">即将上线，敬请期待</p>
+              </div>
             </div>
-          ))}
-        </div>
+          </TabsContent>
+        </Tabs>
       </Card>
       </div>
     </div>

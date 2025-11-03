@@ -89,8 +89,10 @@ export default function TeamAssets() {
               ))}
             </div>
             <div className="flex justify-end gap-2 pt-2">
-              <Button size="sm" variant="outline">
-                🔥更多英铁爆款
+              <Button size="sm" variant="outline" asChild>
+                <a href="https://trip.larkenterprise.com/wiki/BnfNwPdRziJXQWkmr2Dc6EZFnfc?from=from_lark_index_search&ccm_open_type=from_lark_index_search" target="_blank" rel="noopener noreferrer">
+                  🔥更多英铁爆款
+                </a>
               </Button>
               <Button size="sm" variant="outline">
                 👉英铁爆款SOP

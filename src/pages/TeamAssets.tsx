@@ -36,9 +36,9 @@ export default function TeamAssets() {
   };
 
   return (
-    <div className="flex flex-col gap-4 h-full p-4">
+    <div className="grid grid-rows-[1fr_1fr] gap-4 h-full p-4">
       {/* 爆款库 - 主要板块 */}
-      <Card className="bg-gradient-card p-4">
+      <Card className="bg-gradient-card p-4 flex flex-col overflow-hidden">
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-base font-bold flex items-center gap-2">
             <TrendingUp className="w-4 h-4 text-primary" />
@@ -50,8 +50,8 @@ export default function TeamAssets() {
         </div>
 
         {/* 组标签切换 */}
-        <Tabs value={selectedGroup} onValueChange={setSelectedGroup} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-3">
+        <Tabs value={selectedGroup} onValueChange={setSelectedGroup} className="w-full flex flex-col flex-1 min-h-0">
+          <TabsList className="grid w-full grid-cols-4 mb-3 flex-shrink-0">
             <TabsTrigger value="英铁">英铁</TabsTrigger>
             <TabsTrigger value="西铁">西铁</TabsTrigger>
             <TabsTrigger value="中港铁">中港铁</TabsTrigger>
@@ -59,8 +59,9 @@ export default function TeamAssets() {
           </TabsList>
 
           {Object.entries(viralVideos).map(([group, videos]) => (
-            <TabsContent key={group} value={group} className="mt-0">
-              <div className="grid grid-cols-3 gap-3 mb-3">
+            <TabsContent key={group} value={group} className="mt-0 flex flex-col flex-1 min-h-0">
+              <ScrollArea className="flex-1">
+                <div className="grid grid-cols-3 gap-3 mb-3 pr-4">
                 {videos.map((video) => (
                   <Card 
                     key={video.id} 
@@ -89,7 +90,8 @@ export default function TeamAssets() {
                   </Card>
                 ))}
               </div>
-              <div className="flex justify-end gap-2 pt-1">
+              </ScrollArea>
+              <div className="flex justify-end gap-2 pt-2 flex-shrink-0">
                 <Button size="sm" variant="outline">
                   🔥更多爆款视频
                 </Button>

@@ -40,7 +40,7 @@ export default function TeamAssets() {
       {/* 爆款库 - 主要板块 */}
       <Card className="bg-gradient-card p-6">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-base font-bold flex items-center gap-2">
+          <h2 className="text-xl font-bold flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-primary" />
             爆款视频库
           </h2>
@@ -231,7 +231,7 @@ export default function TeamAssets() {
 
       {/* 团队知识库 */}
       <Card className="bg-gradient-card p-6">
-        <h3 className="text-base font-bold mb-4 flex items-center gap-2">
+        <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
           <Users className="w-5 h-5 text-primary" />
           团队知识库
         </h3>

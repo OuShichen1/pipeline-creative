@@ -17,7 +17,7 @@ export function PipelineNav() {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 bg-card border-t border-border shadow-pipeline">
-      <div className="flex items-center justify-around h-20 px-4 max-w-7xl mx-auto">
+      <div className="flex items-center justify-around h-20 px-4 max-w-7xl mx-auto pt-3">
         {stages.map((stage, index) => {
           const isActive = location.pathname === stage.path;
           const Icon = stage.icon;
@@ -27,7 +27,7 @@ export function PipelineNav() {
               <button
                 onClick={() => navigate(stage.path)}
                 className={cn(
-                  "flex flex-col items-center justify-center gap-[1px] w-full pt-1 pb-2 px-4 rounded-lg transition-all",
+                  "flex flex-col items-center justify-center gap-[1px] w-full py-1 px-3 rounded-lg transition-all scale-90",
                   "hover:bg-secondary/50",
                   isActive
                     ? "bg-primary text-primary-foreground shadow-glow"

@@ -17,17 +17,17 @@ export function PipelineNav() {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 bg-card border-t border-border shadow-pipeline">
-      <div className="flex items-center justify-around h-20 px-4 max-w-7xl mx-auto">
+      <div className="grid grid-cols-6 gap-0 h-20 px-4 max-w-7xl mx-auto items-center">
         {stages.map((stage, index) => {
           const isActive = location.pathname === stage.path;
           const Icon = stage.icon;
 
           return (
-            <div key={stage.id} className="flex items-center flex-1">
+            <div key={stage.id} className="flex items-center justify-center">
               <button
                 onClick={() => navigate(stage.path)}
                 className={cn(
-                  "flex flex-col items-center justify-center gap-[1px] w-full py-2 px-3 rounded-lg transition-all scale-90",
+                  "flex flex-col items-center justify-center gap-[1px] py-2 px-3 rounded-lg transition-all scale-90",
                   "hover:bg-secondary/50",
                   isActive
                     ? "border-2 border-primary text-primary shadow-[0_0_15px_rgba(96,165,250,0.5),inset_0_0_15px_rgba(96,165,250,0.1)]"
@@ -37,10 +37,6 @@ export function PipelineNav() {
                 <Icon className={cn("w-8 h-8", isActive && "animate-pulse")} />
                 <span className="text-base font-medium">{stage.label}</span>
               </button>
-
-              {index < stages.length - 1 && (
-                <div className="w-8 h-px bg-border mx-2" />
-              )}
             </div>
           );
         })}

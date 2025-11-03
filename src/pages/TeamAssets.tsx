@@ -38,10 +38,10 @@ export default function TeamAssets() {
   return (
     <div className="flex flex-col gap-4 h-full p-4">
       {/* 爆款库 - 主要板块 */}
-      <Card className="bg-gradient-card p-6">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-lg font-bold flex items-center gap-2">
-            <TrendingUp className="w-5 h-5 text-primary" />
+      <Card className="bg-gradient-card p-4">
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-base font-bold flex items-center gap-2">
+            <TrendingUp className="w-4 h-4 text-primary" />
             爆款视频库
           </h2>
           <Button size="sm" variant="outline">
@@ -51,7 +51,7 @@ export default function TeamAssets() {
 
         {/* 组标签切换 */}
         <Tabs value={selectedGroup} onValueChange={setSelectedGroup} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-6">
+          <TabsList className="grid w-full grid-cols-4 mb-3">
             <TabsTrigger value="英铁">英铁</TabsTrigger>
             <TabsTrigger value="西铁">西铁</TabsTrigger>
             <TabsTrigger value="中港铁">中港铁</TabsTrigger>
@@ -60,28 +60,28 @@ export default function TeamAssets() {
 
           {Object.entries(viralVideos).map(([group, videos]) => (
             <TabsContent key={group} value={group} className="mt-0">
-              <div className="grid grid-cols-3 gap-4 mb-4">
+              <div className="grid grid-cols-3 gap-3 mb-3">
                 {videos.map((video) => (
                   <Card 
                     key={video.id} 
                     className="bg-secondary/50 hover:bg-secondary transition-colors cursor-pointer overflow-hidden"
                   >
                     <div className="aspect-[9/16] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center rounded-t-lg">
-                      <Play className="w-12 h-12 text-primary/50" />
+                      <Play className="w-8 h-8 text-primary/50" />
                     </div>
-                    <div className="p-3">
-                      <h4 className="font-medium text-sm mb-2">{video.title}</h4>
-                      <div className="space-y-1 text-xs text-muted-foreground">
+                    <div className="p-2">
+                      <h4 className="font-medium text-xs mb-1.5">{video.title}</h4>
+                      <div className="space-y-0.5 text-[11px] text-muted-foreground">
                         <div className="flex items-center gap-1">
-                          <Video className="w-3 h-3" />
+                          <Video className="w-2.5 h-2.5" />
                           <span>播放数 {video.播放数}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <Heart className="w-3 h-3" />
+                          <Heart className="w-2.5 h-2.5" />
                           <span>点赞 {video.点赞}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <MessageCircle className="w-3 h-3" />
+                          <MessageCircle className="w-2.5 h-2.5" />
                           <span>评论数 {video.评论数}</span>
                         </div>
                       </div>
@@ -89,7 +89,7 @@ export default function TeamAssets() {
                   </Card>
                 ))}
               </div>
-              <div className="flex justify-end gap-2 pt-2">
+              <div className="flex justify-end gap-2 pt-1">
                 <Button size="sm" variant="outline">
                   🔥更多爆款视频
                 </Button>

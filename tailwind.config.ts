@@ -13,6 +13,16 @@ export default {
       },
     },
     extend: {
+      fontSize: {
+        'xs': '12px',      // 稍小字体
+        'sm': '14px',      // 标准字体
+        'base': '14px',    // 标准字体
+        'lg': '16px',      // 稍大字体
+        'xl': '18px',
+        '2xl': '24px',
+        '3xl': '30px',
+        '4xl': '36px',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

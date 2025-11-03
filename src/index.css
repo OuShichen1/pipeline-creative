@@ -64,7 +64,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground text-sm;
     font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "SimHei", "黑体", -apple-system, BlinkMacSystemFont, sans-serif;
   }
 }

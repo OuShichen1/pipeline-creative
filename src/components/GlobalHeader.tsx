@@ -10,7 +10,7 @@ export function GlobalHeader() {
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-              <span className="text-sm font-bold">AI</span>
+              <span className="text-xs font-bold">AI</span>
             </div>
             <div>
               <h1 className="text-sm font-bold">智能内容营销中台</h1>

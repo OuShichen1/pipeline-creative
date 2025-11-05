@@ -1,4 +1,4 @@
-import { Search, TrendingUp, Database, AlertTriangle, Plus } from "lucide-react";
+import { Search, TrendingUp, Database, AlertTriangle, Plus, CheckCircle2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -12,44 +12,12 @@ export default function Topic() {
       <div className="col-span-3 space-y-4">
         <Card className="p-4 bg-gradient-card">
           <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
-            <Database className="w-4 h-4 text-primary" />
-            爆款库搜索
+            <CheckCircle2 className="w-4 h-4 text-primary" />
+            AI 事实核查
           </h3>
-          <div className="space-y-3">
-            <Input placeholder="搜索行业、平台..." className="bg-secondary" />
-            <div className="flex gap-2">
-              <Button size="sm" variant="outline" className="text-xs">
-                美妆
-              </Button>
-              <Button size="sm" variant="outline" className="text-xs">
-                电商
-              </Button>
-              <Button size="sm" variant="outline" className="text-xs">
-                教育
-              </Button>
-            </div>
-          </div>
-        </Card>
-
-        <Card className="p-4 bg-gradient-card">
-          <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
-            <TrendingUp className="w-4 h-4 text-primary" />
-            爆款拆解工具
-          </h3>
-          <Input placeholder="粘贴链接或主题词..." className="bg-secondary mb-3" />
+          <Input placeholder="输入需要核查的内容..." className="bg-secondary mb-3" />
           <Button size="sm" className="w-full bg-gradient-primary">
-            AI分析
-          </Button>
-        </Card>
-
-        <Card className="p-4 bg-gradient-card">
-          <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
-            <AlertTriangle className="w-4 h-4 text-accent" />
-            风险提示点查询
-          </h3>
-          <Input placeholder="输入关键词..." className="bg-secondary mb-3" />
-          <Button size="sm" variant="secondary" className="w-full">
-            查询
+            开始核查
           </Button>
         </Card>
       </div>

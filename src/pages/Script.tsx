@@ -82,55 +82,8 @@ export default function Script() {
         </Card>
       </div>
 
-      {/* Right Column - AI脚本审核 + 风险提示 */}
+      {/* Right Column - 风险提示 + AI脚本审核 */}
       <div className="col-span-3 overflow-hidden flex flex-col gap-4">
-        {/* AI脚本审核 */}
-        <Card className="bg-gradient-card p-4 flex flex-col overflow-hidden flex-1">
-          <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-accent" />
-            AI脚本审核
-          </h3>
-
-          <ScrollArea className="flex-1 min-h-0">
-            <div className="space-y-3 pr-4">
-              <Card className="p-3 bg-secondary">
-                <div className="flex items-start gap-2">
-                  <Globe className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                  <div className="flex-1">
-                    <h4 className="text-xs font-medium mb-1">本地化翻译</h4>
-                    <p className="text-xs text-muted-foreground mb-2">
-                      将脚本翻译为其他语言
-                    </p>
-                    <select className="w-full p-2 text-xs rounded bg-background border border-border mb-2">
-                      <option>英语</option>
-                      <option>日语</option>
-                      <option>韩语</option>
-                    </select>
-                    <Button size="sm" className="w-full bg-gradient-primary">
-                      翻译
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-3 bg-secondary">
-                <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-                  <div className="flex-1">
-                    <h4 className="text-xs font-medium mb-1">AI事实核查</h4>
-                    <p className="text-xs text-muted-foreground mb-2">
-                      检查脚本中的事实准确性
-                    </p>
-                    <Button size="sm" className="w-full bg-gradient-primary">
-                      开始核查
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            </div>
-          </ScrollArea>
-        </Card>
-
         {/* 风险提示 */}
         <Card className="bg-gradient-card p-4 shrink-0">
           <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
@@ -180,6 +133,53 @@ export default function Script() {
                   )}
                 </div>
               ))}
+            </div>
+          </ScrollArea>
+        </Card>
+
+        {/* AI脚本审核 */}
+        <Card className="bg-gradient-card p-4 flex flex-col overflow-hidden flex-1">
+          <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-accent" />
+            AI脚本审核
+          </h3>
+
+          <ScrollArea className="flex-1 min-h-0">
+            <div className="space-y-3 pr-4">
+              <Card className="p-3 bg-secondary">
+                <div className="flex items-start gap-2">
+                  <Globe className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    <h4 className="text-xs font-medium mb-1">本地化翻译</h4>
+                    <p className="text-xs text-muted-foreground mb-2">
+                      将脚本翻译为其他语言
+                    </p>
+                    <select className="w-full p-2 text-xs rounded bg-background border border-border mb-2">
+                      <option>英语</option>
+                      <option>日语</option>
+                      <option>韩语</option>
+                    </select>
+                    <Button size="sm" className="w-full bg-gradient-primary">
+                      翻译
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-3 bg-secondary">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    <h4 className="text-xs font-medium mb-1">AI事实核查</h4>
+                    <p className="text-xs text-muted-foreground mb-2">
+                      检查脚本中的事实准确性
+                    </p>
+                    <Button size="sm" className="w-full bg-gradient-primary">
+                      开始核查
+                    </Button>
+                  </div>
+                </div>
+              </Card>
             </div>
           </ScrollArea>
         </Card>

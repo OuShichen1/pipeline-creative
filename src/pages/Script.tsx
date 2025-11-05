@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 
 export default function Script() {
-  const [selectedLanguage, setSelectedLanguage] = useState<"英语" | "西班牙语" | "粤语">("英语");
+  const [selectedLanguage, setSelectedLanguage] = useState<"英语" | "西语" | "粤语">("英语");
   return (
     <div className="flex flex-col gap-4 h-full overflow-hidden p-4">
       <div className="grid grid-cols-12 gap-4 flex-1 min-h-0 overflow-hidden">
@@ -97,14 +97,14 @@ export default function Script() {
                   英语
                 </button>
                 <button 
-                  onClick={() => setSelectedLanguage("西班牙语")}
+                  onClick={() => setSelectedLanguage("西语")}
                   className={`px-3 py-2 text-sm font-medium transition-colors ${
-                    selectedLanguage === "西班牙语" 
+                    selectedLanguage === "西语" 
                       ? "border-b-2 border-primary text-primary" 
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  西班牙语
+                  西语
                 </button>
                 <button 
                   onClick={() => setSelectedLanguage("粤语")}
@@ -150,11 +150,7 @@ export default function Script() {
 
           <div className="flex gap-3 justify-end mt-6 pt-4 border-t border-border">
             <Button size="default" variant="outline">
-              保存草稿
-            </Button>
-            <Button size="default" className="bg-gradient-primary">
-              <Send className="w-4 h-4 mr-2" />
-              提交审核
+              复制外语脚本
             </Button>
           </div>
         </Card>

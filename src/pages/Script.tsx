@@ -10,49 +10,8 @@ export default function Script() {
   return (
     <div className="flex flex-col gap-4 h-full overflow-hidden p-4">
       <div className="grid grid-cols-12 gap-4 flex-1 min-h-0 overflow-hidden">
-      {/* Left Column - File Manager */}
-      <div className="col-span-2 overflow-hidden">
-        <Card className="h-full bg-gradient-card p-4 flex flex-col overflow-hidden">
-          <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
-            <FolderOpen className="w-4 h-4 text-primary" />
-            脚本文件
-          </h3>
-
-          <ScrollArea className="flex-1 min-h-0">
-            <div className="space-y-2">
-              {["产品A脚本", "团队模板", "草稿箱"].map((folder) => (
-                <div key={folder} className="space-y-1">
-                  <div className="text-xs font-medium text-muted-foreground p-2">
-                    {folder}
-                  </div>
-                  {[1, 2, 3].map((i) => (
-                    <button
-                      key={i}
-                      className="w-full text-left p-2 rounded hover:bg-secondary/50 text-xs flex items-center gap-2"
-                    >
-                      <FileText className="w-3 h-3" />
-                      脚本_{i}.txt
-                    </button>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </ScrollArea>
-
-          <div className="mt-4 pt-4 border-t border-border">
-            <h4 className="text-xs font-semibold mb-2">团队资产</h4>
-            <button className="w-full text-left p-2 rounded hover:bg-secondary/50 text-xs">
-              📝 提示词库
-            </button>
-            <button className="w-full text-left p-2 rounded hover:bg-secondary/50 text-xs">
-              🎯 团队上下文
-            </button>
-          </div>
-        </Card>
-      </div>
-
       {/* Center Column - Editor */}
-      <div className="col-span-8 overflow-hidden">
+      <div className="col-span-7 overflow-hidden">
         <Card className="h-full bg-gradient-card p-6 flex flex-col overflow-hidden">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold">脚本编辑器</h3>
@@ -87,7 +46,7 @@ export default function Script() {
       </div>
 
       {/* Right Column - AI Assistant */}
-      <div className="col-span-2 overflow-hidden">
+      <div className="col-span-5 overflow-hidden">
         <Card className="h-full bg-gradient-card p-4 flex flex-col overflow-hidden">
           <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-primary" />
@@ -180,7 +139,7 @@ export default function Script() {
           风险提示
         </h3>
         <ScrollArea className="h-[80px]">
-          <div className="grid grid-cols-4 gap-3 pr-4">
+          <div className="grid grid-cols-1 gap-3 pr-4">
             {[
               { 
                 level: "高", 
@@ -192,9 +151,6 @@ export default function Script() {
                   "历史参考：2025年7月23日晚也曾因PR事件屏蔽内容，可能导致数据不够。7月25日曾暂停发布内容，并计划后续拉群审核视频后再发。"
                 ]
               },
-              { level: "高", title: "竞品法律纠纷", date: "3月15日" },
-              { level: "中", title: "行业监管政策", date: "3月12日" },
-              { level: "低", title: "用户投诉趋势", date: "3月10日" },
             ].map((risk, idx) => (
               <div
                 key={idx}

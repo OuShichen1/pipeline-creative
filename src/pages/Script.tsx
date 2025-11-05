@@ -32,24 +32,24 @@ export default function Script() {
                 <div className="grid grid-cols-1 gap-2 mb-3">
                   <Button 
                     size="sm" 
-                    variant={selectedTopic === 1 ? "default" : "outline"} 
-                    className="text-xs"
+                    variant="outline" 
+                    className={`text-xs ${selectedTopic === 1 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedTopic(1)}
                   >
                     选题1
                   </Button>
                   <Button 
                     size="sm" 
-                    variant={selectedTopic === 2 ? "default" : "outline"} 
-                    className="text-xs"
+                    variant="outline" 
+                    className={`text-xs ${selectedTopic === 2 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedTopic(2)}
                   >
                     选题2
                   </Button>
                   <Button 
                     size="sm" 
-                    variant={selectedTopic === 3 ? "default" : "outline"} 
-                    className="text-xs"
+                    variant="outline" 
+                    className={`text-xs ${selectedTopic === 3 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedTopic(3)}
                   >
                     选题3
@@ -60,24 +60,24 @@ export default function Script() {
                 <div className="grid grid-cols-1 gap-2 mb-3">
                   <Button 
                     size="sm" 
-                    variant={selectedTemplate === 1 ? "default" : "outline"} 
-                    className="text-xs"
+                    variant="outline" 
+                    className={`text-xs ${selectedTemplate === 1 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedTemplate(1)}
                   >
                     模板1
                   </Button>
                   <Button 
                     size="sm" 
-                    variant={selectedTemplate === 2 ? "default" : "outline"} 
-                    className="text-xs"
+                    variant="outline" 
+                    className={`text-xs ${selectedTemplate === 2 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedTemplate(2)}
                   >
                     模板2
                   </Button>
                   <Button 
                     size="sm" 
-                    variant={selectedTemplate === 3 ? "default" : "outline"} 
-                    className="text-xs"
+                    variant="outline" 
+                    className={`text-xs ${selectedTemplate === 3 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedTemplate(3)}
                   >
                     模板3
@@ -88,24 +88,24 @@ export default function Script() {
                 <div className="grid grid-cols-1 gap-2 mb-3">
                   <Button 
                     size="sm" 
-                    variant={selectedBenefit === 1 ? "default" : "outline"} 
-                    className="text-xs"
+                    variant="outline" 
+                    className={`text-xs ${selectedBenefit === 1 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedBenefit(1)}
                   >
                     利益点1
                   </Button>
                   <Button 
                     size="sm" 
-                    variant={selectedBenefit === 2 ? "default" : "outline"} 
-                    className="text-xs"
+                    variant="outline" 
+                    className={`text-xs ${selectedBenefit === 2 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedBenefit(2)}
                   >
                     利益点2
                   </Button>
                   <Button 
                     size="sm" 
-                    variant={selectedBenefit === 3 ? "default" : "outline"} 
-                    className="text-xs"
+                    variant="outline" 
+                    className={`text-xs ${selectedBenefit === 3 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedBenefit(3)}
                   >
                     利益点3

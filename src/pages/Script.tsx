@@ -209,11 +209,11 @@ export default function Script() {
           </div>
         </Card>
 
-        {/* AI脚本审核 */}
+        {/* AI合规检查 */}
         <Card className="bg-gradient-card p-4 flex flex-col overflow-hidden flex-1">
           <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-accent" />
-            AI脚本审核
+            AI合规检查
           </h3>
 
           <ScrollArea className="flex-1 min-h-0">
@@ -222,12 +222,27 @@ export default function Script() {
                 <div className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                   <div className="flex-1">
-                    <h4 className="text-xs font-medium mb-1">AI事实核查</h4>
+                    <h4 className="text-xs font-medium mb-1">合规性检查</h4>
                     <p className="text-xs text-muted-foreground mb-2">
-                      检查脚本中的事实准确性
+                      检查脚本是否符合平台规范和法律要求
                     </p>
                     <Button size="sm" className="w-full bg-gradient-primary">
-                      开始核查
+                      开始检查
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-3 bg-secondary">
+                <div className="flex items-start gap-2">
+                  <Sparkles className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    <h4 className="text-xs font-medium mb-1">AI脚本打分</h4>
+                    <p className="text-xs text-muted-foreground mb-2">
+                      AI分析脚本质量并给出改进建议
+                    </p>
+                    <Button size="sm" className="w-full bg-gradient-primary">
+                      开始打分
                     </Button>
                   </div>
                 </div>

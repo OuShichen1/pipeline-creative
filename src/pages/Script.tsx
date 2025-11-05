@@ -10,94 +10,95 @@ export default function Script() {
   return (
     <div className="flex flex-col gap-4 h-full overflow-hidden p-4">
       <div className="grid grid-cols-12 gap-4 flex-1 min-h-0 overflow-hidden">
-      {/* Left Column - AI Assistant */}
-      <div className="col-span-5 overflow-hidden">
+      {/* Left Column - AI脚本生成 */}
+      <div className="col-span-3 overflow-hidden">
         <Card className="h-full bg-gradient-card p-4 flex flex-col overflow-hidden">
           <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-primary" />
-            AI 助手
+            AI脚本生成
           </h3>
 
-          <Tabs defaultValue="factcheck" className="flex-1 min-h-0 flex flex-col">
-            <TabsList className="grid w-full grid-cols-2 bg-secondary shrink-0">
-              <TabsTrigger value="factcheck" className="text-xs">
-                核查
-              </TabsTrigger>
-              <TabsTrigger value="generate" className="text-xs">
-                生成
-              </TabsTrigger>
-            </TabsList>
-
-            <ScrollArea className="flex-1 min-h-0 mt-4">
-              <TabsContent value="factcheck" className="space-y-3 mt-0">
-                <Card className="p-3 bg-secondary">
-                  <div className="flex items-start gap-2">
-                    <Globe className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="text-xs font-medium mb-1">本地化翻译</h4>
-                      <p className="text-xs text-muted-foreground mb-2">
-                        将脚本翻译为其他语言
-                      </p>
-                      <select className="w-full p-2 text-xs rounded bg-background border border-border mb-2">
-                        <option>英语</option>
-                        <option>日语</option>
-                        <option>韩语</option>
-                      </select>
-                      <Button size="sm" className="w-full bg-gradient-primary">
-                        翻译
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
-
-                <Card className="p-3 bg-secondary">
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="text-xs font-medium mb-1">AI事实核查</h4>
-                      <p className="text-xs text-muted-foreground mb-2">
-                        检查脚本中的事实准确性
-                      </p>
-                      <Button size="sm" className="w-full bg-gradient-primary">
-                        开始核查
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
-              </TabsContent>
-
-              <TabsContent value="generate" className="space-y-3 mt-0">
-                <Card className="p-3 bg-secondary">
-                  <h4 className="text-xs font-medium mb-2">选择选题</h4>
-                  <div className="grid grid-cols-3 gap-2 mb-3">
-                    <Button size="sm" variant="outline" className="text-xs">
-                      选题1
-                    </Button>
-                    <Button size="sm" variant="outline" className="text-xs">
-                      选题2
-                    </Button>
-                    <Button size="sm" variant="outline" className="text-xs">
-                      选题3
-                    </Button>
-                  </div>
-                  
-                  <h4 className="text-xs font-medium mb-2">产品卖点生成话术</h4>
-                  <Textarea
-                    placeholder="输入产品卖点..."
-                    className="text-xs mb-2 min-h-[60px] bg-background"
-                  />
-                  <Button size="sm" className="w-full bg-gradient-primary">
-                    生成
+          <ScrollArea className="flex-1 min-h-0">
+            <div className="space-y-3 pr-4">
+              <Card className="p-3 bg-secondary">
+                <h4 className="text-xs font-medium mb-2">选择选题</h4>
+                <div className="grid grid-cols-1 gap-2 mb-3">
+                  <Button size="sm" variant="outline" className="text-xs">
+                    选题1
                   </Button>
-                </Card>
-              </TabsContent>
-            </ScrollArea>
-          </Tabs>
+                  <Button size="sm" variant="outline" className="text-xs">
+                    选题2
+                  </Button>
+                  <Button size="sm" variant="outline" className="text-xs">
+                    选题3
+                  </Button>
+                </div>
+                
+                <h4 className="text-xs font-medium mb-2">产品卖点生成话术</h4>
+                <Textarea
+                  placeholder="输入产品卖点..."
+                  className="text-xs mb-2 min-h-[60px] bg-background"
+                />
+                <Button size="sm" className="w-full bg-gradient-primary">
+                  生成
+                </Button>
+              </Card>
+            </div>
+          </ScrollArea>
+        </Card>
+      </div>
+
+      {/* Middle Column - AI脚本审核 */}
+      <div className="col-span-3 overflow-hidden">
+        <Card className="h-full bg-gradient-card p-4 flex flex-col overflow-hidden">
+          <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-accent" />
+            AI脚本审核
+          </h3>
+
+          <ScrollArea className="flex-1 min-h-0">
+            <div className="space-y-3 pr-4">
+              <Card className="p-3 bg-secondary">
+                <div className="flex items-start gap-2">
+                  <Globe className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    <h4 className="text-xs font-medium mb-1">本地化翻译</h4>
+                    <p className="text-xs text-muted-foreground mb-2">
+                      将脚本翻译为其他语言
+                    </p>
+                    <select className="w-full p-2 text-xs rounded bg-background border border-border mb-2">
+                      <option>英语</option>
+                      <option>日语</option>
+                      <option>韩语</option>
+                    </select>
+                    <Button size="sm" className="w-full bg-gradient-primary">
+                      翻译
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-3 bg-secondary">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    <h4 className="text-xs font-medium mb-1">AI事实核查</h4>
+                    <p className="text-xs text-muted-foreground mb-2">
+                      检查脚本中的事实准确性
+                    </p>
+                    <Button size="sm" className="w-full bg-gradient-primary">
+                      开始核查
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </ScrollArea>
         </Card>
       </div>
 
       {/* Right Column - Editor */}
-      <div className="col-span-7 overflow-hidden">
+      <div className="col-span-6 overflow-hidden">
         <Card className="h-full bg-gradient-card p-6 flex flex-col overflow-hidden">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold">脚本编辑器</h3>
@@ -134,8 +135,8 @@ export default function Script() {
 
       {/* 风险提示 - 与脚本编辑器宽度对齐 */}
       <div className="grid grid-cols-12 gap-4">
-        <div className="col-span-5"></div>
-        <div className="col-span-7">
+        <div className="col-span-6"></div>
+        <div className="col-span-6">
           <Card className="bg-gradient-card p-4 shrink-0">
         <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
           <AlertTriangle className="w-4 h-4 text-destructive" />

@@ -9,6 +9,11 @@ import { useState } from "react";
 
 export default function Script() {
   const [selectedLanguage, setSelectedLanguage] = useState<"英语" | "西语" | "粤语">("英语");
+  const [selectedTopic, setSelectedTopic] = useState<number | null>(null);
+  const [selectedTemplate, setSelectedTemplate] = useState<number | null>(null);
+  const [selectedBenefit, setSelectedBenefit] = useState<number | null>(null);
+  
+  const canGenerate = selectedTopic !== null && selectedTemplate !== null && selectedBenefit !== null;
   return (
     <div className="flex flex-col gap-4 h-full overflow-hidden p-4">
       <div className="grid grid-cols-12 gap-4 flex-1 min-h-0 overflow-hidden">
@@ -25,44 +30,93 @@ export default function Script() {
               <Card className="p-3 bg-secondary">
                 <h4 className="text-xs font-medium mb-2">选择选题</h4>
                 <div className="grid grid-cols-1 gap-2 mb-3">
-                  <Button size="sm" variant="outline" className="text-xs">
+                  <Button 
+                    size="sm" 
+                    variant={selectedTopic === 1 ? "default" : "outline"} 
+                    className="text-xs"
+                    onClick={() => setSelectedTopic(1)}
+                  >
                     选题1
                   </Button>
-                  <Button size="sm" variant="outline" className="text-xs">
+                  <Button 
+                    size="sm" 
+                    variant={selectedTopic === 2 ? "default" : "outline"} 
+                    className="text-xs"
+                    onClick={() => setSelectedTopic(2)}
+                  >
                     选题2
                   </Button>
-                  <Button size="sm" variant="outline" className="text-xs">
+                  <Button 
+                    size="sm" 
+                    variant={selectedTopic === 3 ? "default" : "outline"} 
+                    className="text-xs"
+                    onClick={() => setSelectedTopic(3)}
+                  >
                     选题3
                   </Button>
                 </div>
                 
                 <h4 className="text-xs font-medium mb-2">模板选项</h4>
                 <div className="grid grid-cols-1 gap-2 mb-3">
-                  <Button size="sm" variant="outline" className="text-xs">
+                  <Button 
+                    size="sm" 
+                    variant={selectedTemplate === 1 ? "default" : "outline"} 
+                    className="text-xs"
+                    onClick={() => setSelectedTemplate(1)}
+                  >
                     模板1
                   </Button>
-                  <Button size="sm" variant="outline" className="text-xs">
+                  <Button 
+                    size="sm" 
+                    variant={selectedTemplate === 2 ? "default" : "outline"} 
+                    className="text-xs"
+                    onClick={() => setSelectedTemplate(2)}
+                  >
                     模板2
                   </Button>
-                  <Button size="sm" variant="outline" className="text-xs">
+                  <Button 
+                    size="sm" 
+                    variant={selectedTemplate === 3 ? "default" : "outline"} 
+                    className="text-xs"
+                    onClick={() => setSelectedTemplate(3)}
+                  >
                     模板3
                   </Button>
                 </div>
 
                 <h4 className="text-xs font-medium mb-2">利益点选项</h4>
                 <div className="grid grid-cols-1 gap-2 mb-3">
-                  <Button size="sm" variant="outline" className="text-xs">
+                  <Button 
+                    size="sm" 
+                    variant={selectedBenefit === 1 ? "default" : "outline"} 
+                    className="text-xs"
+                    onClick={() => setSelectedBenefit(1)}
+                  >
                     利益点1
                   </Button>
-                  <Button size="sm" variant="outline" className="text-xs">
+                  <Button 
+                    size="sm" 
+                    variant={selectedBenefit === 2 ? "default" : "outline"} 
+                    className="text-xs"
+                    onClick={() => setSelectedBenefit(2)}
+                  >
                     利益点2
                   </Button>
-                  <Button size="sm" variant="outline" className="text-xs">
+                  <Button 
+                    size="sm" 
+                    variant={selectedBenefit === 3 ? "default" : "outline"} 
+                    className="text-xs"
+                    onClick={() => setSelectedBenefit(3)}
+                  >
                     利益点3
                   </Button>
                 </div>
 
-                <Button size="sm" className="w-full bg-gradient-primary">
+                <Button 
+                  size="sm" 
+                  className="w-full bg-gradient-primary" 
+                  disabled={!canGenerate}
+                >
                   生成
                 </Button>
               </Card>

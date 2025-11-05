@@ -93,6 +93,17 @@ export default function Script() {
 ## 使用场景
 适合内容创作者、营销人员、企业团队...`}
               />
+              <div className="flex items-center gap-2 pt-2">
+                <Globe className="w-4 h-4 text-primary shrink-0" />
+                <select className="flex-1 p-2 text-xs rounded bg-background border border-border">
+                  <option>英语</option>
+                  <option>日语</option>
+                  <option>韩语</option>
+                </select>
+                <Button size="sm" className="bg-gradient-primary">
+                  翻译
+                </Button>
+              </div>
             </div>
 
             <div className="flex flex-col gap-2">
@@ -188,26 +199,6 @@ export default function Script() {
                     </p>
                     <Button size="sm" className="w-full bg-gradient-primary">
                       开始核查
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-3 bg-secondary">
-                <div className="flex items-start gap-2">
-                  <Globe className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                  <div className="flex-1">
-                    <h4 className="text-xs font-medium mb-1">本地化翻译</h4>
-                    <p className="text-xs text-muted-foreground mb-2">
-                      将脚本翻译为其他语言
-                    </p>
-                    <select className="w-full p-2 text-xs rounded bg-background border border-border mb-2">
-                      <option>英语</option>
-                      <option>日语</option>
-                      <option>韩语</option>
-                    </select>
-                    <Button size="sm" className="w-full bg-gradient-primary">
-                      翻译
                     </Button>
                   </div>
                 </div>

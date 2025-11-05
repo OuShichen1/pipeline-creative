@@ -76,19 +76,15 @@ export default function Script() {
 
           <div className="flex flex-col gap-4 flex-1 min-h-0">
             {/* Language Selection Tabs */}
-            <div className="flex items-center gap-4">
-              <div className="flex-1 flex items-center gap-2 border-b border-border">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex items-center border-b border-border">
                 <button className="px-3 py-2 text-sm font-medium border-b-2 border-primary text-primary">
                   中文
                 </button>
               </div>
-              
-              <Button size="sm" variant="ghost" className="shrink-0">
-                <Send className="w-4 h-4" />
-              </Button>
 
-              <div className="flex-1 flex items-center gap-2 border-b border-border">
-                <button className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground">
+              <div className="flex items-center border-b border-border">
+                <button className="px-3 py-2 text-sm font-medium border-b-2 border-primary text-primary">
                   英语
                 </button>
                 <button className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground">
@@ -103,11 +99,10 @@ export default function Script() {
             {/* Editor Areas */}
             <div className="grid grid-cols-2 gap-4 flex-1 min-h-0">
               {/* Source Text */}
-              <div className="flex flex-col">
-                <Textarea
-                  placeholder="开始撰写你的脚本..."
-                  className="flex-1 min-h-0 bg-background border-border resize-none text-base leading-relaxed p-4"
-                  defaultValue={`# 产品介绍脚本
+              <Textarea
+                placeholder="开始撰写你的脚本..."
+                className="flex-1 min-h-0 bg-background border-border resize-none text-base leading-relaxed p-4"
+                defaultValue={`# 产品介绍脚本
 
 ## 开场白
 大家好，今天给大家带来一款革命性的AI工具...
@@ -119,11 +114,7 @@ export default function Script() {
 
 ## 使用场景
 适合内容创作者、营销人员、企业团队...`}
-                />
-                <div className="flex items-center justify-between pt-2 text-xs text-muted-foreground">
-                  <span>0 / 5,000</span>
-                </div>
-              </div>
+              />
 
               {/* Translation Result */}
               <div className="flex flex-col bg-secondary/30 rounded-lg border border-border">

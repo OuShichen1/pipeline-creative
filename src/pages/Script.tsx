@@ -5,15 +5,86 @@ import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Script() {
   const [selectedLanguage, setSelectedLanguage] = useState<"英语" | "西语" | "粤语">("英语");
   const [selectedTopic, setSelectedTopic] = useState<number | null>(null);
   const [selectedTemplate, setSelectedTemplate] = useState<number | null>(null);
   const [selectedBenefit, setSelectedBenefit] = useState<number | null>(null);
+  const [chineseText, setChineseText] = useState(`# 产品介绍脚本
+
+## 开场白
+大家好，今天给大家带来一款革命性的AI工具...
+
+## 核心卖点
+1. 提升效率300%
+2. 零门槛上手
+3. 智能化创作
+
+## 使用场景
+适合内容创作者、营销人员、企业团队...`);
+  const [translatedText, setTranslatedText] = useState("");
+  const [isTranslating, setIsTranslating] = useState(false);
+  const { toast } = useToast();
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
   
   const canGenerate = selectedTopic !== null && selectedTemplate !== null && selectedBenefit !== null;
+
+  const translateText = async (text: string, language: string) => {
+    if (!text.trim()) {
+      setTranslatedText("");
+      return;
+    }
+
+    setIsTranslating(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("translate-script", {
+        body: { text, targetLanguage: language }
+      });
+
+      if (error) {
+        console.error("Translation error:", error);
+        toast({
+          title: "翻译失败",
+          description: error.message || "请稍后重试",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (data?.translatedText) {
+        setTranslatedText(data.translatedText);
+      }
+    } catch (error) {
+      console.error("Translation error:", error);
+      toast({
+        title: "翻译失败",
+        description: "请检查网络连接后重试",
+        variant: "destructive",
+      });
+    } finally {
+      setIsTranslating(false);
+    }
+  };
+
+  useEffect(() => {
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+
+    debounceTimerRef.current = setTimeout(() => {
+      translateText(chineseText, selectedLanguage);
+    }, 1000);
+
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+    };
+  }, [chineseText, selectedLanguage]);
   return (
     <div className="flex flex-col gap-4 h-full overflow-hidden p-4">
       <div className="grid grid-cols-12 gap-4 flex-1 min-h-0 overflow-hidden">
@@ -179,24 +250,20 @@ export default function Script() {
               <Textarea
                 placeholder="开始撰写你的脚本..."
                 className="flex-1 min-h-0 bg-background border-border resize-none text-base leading-relaxed p-4"
-                defaultValue={`# 产品介绍脚本
-
-## 开场白
-大家好，今天给大家带来一款革命性的AI工具...
-
-## 核心卖点
-1. 提升效率300%
-2. 零门槛上手
-3. 智能化创作
-
-## 使用场景
-适合内容创作者、营销人员、企业团队...`}
+                value={chineseText}
+                onChange={(e) => setChineseText(e.target.value)}
               />
 
               {/* Translation Result */}
               <div className="flex flex-col bg-secondary/30 rounded-lg border border-border">
                 <div className="flex-1 min-h-0 p-4 overflow-auto">
-                  <p className="text-muted-foreground">翻译</p>
+                  {isTranslating ? (
+                    <p className="text-muted-foreground">翻译中...</p>
+                  ) : translatedText ? (
+                    <p className="text-foreground whitespace-pre-wrap">{translatedText}</p>
+                  ) : (
+                    <p className="text-muted-foreground">翻译结果将显示在这里</p>
+                  )}
                 </div>
               </div>
             </div>

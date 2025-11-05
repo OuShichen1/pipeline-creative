@@ -33,7 +33,7 @@ export default function Script() {
                   <Button 
                     size="sm" 
                     variant="outline" 
-                    className={`text-xs ${selectedTopic === 1 ? "bg-background border-primary border-2" : ""}`}
+                    className={`text-xs hover:border-primary hover:border-2 ${selectedTopic === 1 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedTopic(1)}
                   >
                     选题1
@@ -41,7 +41,7 @@ export default function Script() {
                   <Button 
                     size="sm" 
                     variant="outline" 
-                    className={`text-xs ${selectedTopic === 2 ? "bg-background border-primary border-2" : ""}`}
+                    className={`text-xs hover:border-primary hover:border-2 ${selectedTopic === 2 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedTopic(2)}
                   >
                     选题2
@@ -49,7 +49,7 @@ export default function Script() {
                   <Button 
                     size="sm" 
                     variant="outline" 
-                    className={`text-xs ${selectedTopic === 3 ? "bg-background border-primary border-2" : ""}`}
+                    className={`text-xs hover:border-primary hover:border-2 ${selectedTopic === 3 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedTopic(3)}
                   >
                     选题3
@@ -61,7 +61,7 @@ export default function Script() {
                   <Button 
                     size="sm" 
                     variant="outline" 
-                    className={`text-xs ${selectedTemplate === 1 ? "bg-background border-primary border-2" : ""}`}
+                    className={`text-xs hover:border-primary hover:border-2 ${selectedTemplate === 1 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedTemplate(1)}
                   >
                     模板1
@@ -69,7 +69,7 @@ export default function Script() {
                   <Button 
                     size="sm" 
                     variant="outline" 
-                    className={`text-xs ${selectedTemplate === 2 ? "bg-background border-primary border-2" : ""}`}
+                    className={`text-xs hover:border-primary hover:border-2 ${selectedTemplate === 2 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedTemplate(2)}
                   >
                     模板2
@@ -77,7 +77,7 @@ export default function Script() {
                   <Button 
                     size="sm" 
                     variant="outline" 
-                    className={`text-xs ${selectedTemplate === 3 ? "bg-background border-primary border-2" : ""}`}
+                    className={`text-xs hover:border-primary hover:border-2 ${selectedTemplate === 3 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedTemplate(3)}
                   >
                     模板3
@@ -89,7 +89,7 @@ export default function Script() {
                   <Button 
                     size="sm" 
                     variant="outline" 
-                    className={`text-xs ${selectedBenefit === 1 ? "bg-background border-primary border-2" : ""}`}
+                    className={`text-xs hover:border-primary hover:border-2 ${selectedBenefit === 1 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedBenefit(1)}
                   >
                     利益点1
@@ -97,7 +97,7 @@ export default function Script() {
                   <Button 
                     size="sm" 
                     variant="outline" 
-                    className={`text-xs ${selectedBenefit === 2 ? "bg-background border-primary border-2" : ""}`}
+                    className={`text-xs hover:border-primary hover:border-2 ${selectedBenefit === 2 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedBenefit(2)}
                   >
                     利益点2
@@ -105,7 +105,7 @@ export default function Script() {
                   <Button 
                     size="sm" 
                     variant="outline" 
-                    className={`text-xs ${selectedBenefit === 3 ? "bg-background border-primary border-2" : ""}`}
+                    className={`text-xs hover:border-primary hover:border-2 ${selectedBenefit === 3 ? "bg-background border-primary border-2" : ""}`}
                     onClick={() => setSelectedBenefit(3)}
                   >
                     利益点3

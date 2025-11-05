@@ -10,24 +10,12 @@ export function GlobalHeader() {
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-              <span className="text-xs font-bold">AI</span>
+              <span className="text-xs font-bold text-primary-foreground">AI</span>
             </div>
             <div>
               <h1 className="text-sm font-bold">智能内容营销中台</h1>
               <p className="text-xs text-muted-foreground">当前项目：新品推广</p>
             </div>
-          </div>
-        </div>
-
-        {/* Center section - Search */}
-        <div className="flex-1 max-w-xl mx-8">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <Input
-              type="search"
-              placeholder="全局搜索..."
-              className="pl-10 bg-secondary border-border"
-            />
           </div>
         </div>
 

@@ -74,16 +74,40 @@ export default function Script() {
         <Card className="h-full bg-gradient-card p-6 flex flex-col overflow-hidden">
           <h3 className="text-lg font-semibold mb-6">脚本编辑器</h3>
 
-          <div className="grid grid-cols-2 gap-6 flex-1 min-h-0">
-            {/* 中文编辑区 */}
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center justify-between">
-                <h4 className="text-sm font-semibold">中文脚本</h4>
+          <div className="flex flex-col gap-4 flex-1 min-h-0">
+            {/* Language Selection Tabs */}
+            <div className="flex items-center gap-4">
+              <div className="flex-1 flex items-center gap-2 border-b border-border">
+                <button className="px-3 py-2 text-sm font-medium border-b-2 border-primary text-primary">
+                  中文
+                </button>
               </div>
-              <Textarea
-                placeholder="开始撰写你的脚本..."
-                className="flex-1 min-h-0 bg-secondary border-border font-mono resize-none text-sm leading-relaxed p-4"
-                defaultValue={`# 产品介绍脚本
+              
+              <Button size="sm" variant="ghost" className="shrink-0">
+                <Send className="w-4 h-4" />
+              </Button>
+
+              <div className="flex-1 flex items-center gap-2 border-b border-border">
+                <button className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground">
+                  英语
+                </button>
+                <button className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground">
+                  西班牙语
+                </button>
+                <button className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground">
+                  粤语
+                </button>
+              </div>
+            </div>
+
+            {/* Editor Areas */}
+            <div className="grid grid-cols-2 gap-4 flex-1 min-h-0">
+              {/* Source Text */}
+              <div className="flex flex-col">
+                <Textarea
+                  placeholder="开始撰写你的脚本..."
+                  className="flex-1 min-h-0 bg-background border-border resize-none text-base leading-relaxed p-4"
+                  defaultValue={`# 产品介绍脚本
 
 ## 开场白
 大家好，今天给大家带来一款革命性的AI工具...
@@ -95,30 +119,18 @@ export default function Script() {
 
 ## 使用场景
 适合内容创作者、营销人员、企业团队...`}
-              />
-              <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg border border-border">
-                <Globe className="w-4 h-4 text-primary shrink-0" />
-                <select className="flex-1 px-3 py-2 text-sm rounded-md bg-background border border-border focus:outline-none focus:ring-2 focus:ring-primary/20">
-                  <option>英语</option>
-                  <option>西班牙语</option>
-                  <option>粤语</option>
-                </select>
-                <Button size="default" className="bg-gradient-primary shrink-0">
-                  本地化翻译
-                </Button>
+                />
+                <div className="flex items-center justify-between pt-2 text-xs text-muted-foreground">
+                  <span>0 / 5,000</span>
+                </div>
               </div>
-            </div>
 
-            {/* 翻译结果区 */}
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center justify-between">
-                <h4 className="text-sm font-semibold">本地化翻译</h4>
+              {/* Translation Result */}
+              <div className="flex flex-col bg-secondary/30 rounded-lg border border-border">
+                <div className="flex-1 min-h-0 p-4 overflow-auto">
+                  <p className="text-muted-foreground">翻译</p>
+                </div>
               </div>
-              <Textarea
-                placeholder="翻译后的脚本将显示在这里..."
-                className="flex-1 min-h-0 bg-secondary border-border font-mono resize-none text-sm leading-relaxed p-4"
-              />
-              <div className="h-[52px]"></div>
             </div>
           </div>
 

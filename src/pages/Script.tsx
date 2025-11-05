@@ -48,7 +48,41 @@ export default function Script() {
         </Card>
       </div>
 
-      {/* Middle Column - AI脚本审核 */}
+      {/* Middle Column - Editor */}
+      <div className="col-span-6 overflow-hidden">
+        <Card className="h-full bg-gradient-card p-6 flex flex-col overflow-hidden">
+          <h3 className="text-lg font-semibold mb-4">脚本编辑器</h3>
+
+          <Textarea
+            placeholder="开始撰写你的脚本..."
+            className="flex-1 min-h-0 bg-secondary border-border font-mono resize-none"
+            defaultValue={`# 产品介绍脚本
+
+## 开场白
+大家好，今天给大家带来一款革命性的AI工具...
+
+## 核心卖点
+1. 提升效率300%
+2. 零门槛上手
+3. 智能化创作
+
+## 使用场景
+适合内容创作者、营销人员、企业团队...`}
+          />
+
+          <div className="flex gap-2 justify-end mt-4">
+            <Button size="sm" variant="outline">
+              保存草稿
+            </Button>
+            <Button size="sm" className="bg-gradient-primary">
+              <Send className="w-4 h-4 mr-2" />
+              提交审核
+            </Button>
+          </div>
+        </Card>
+      </div>
+
+      {/* Right Column - AI脚本审核 */}
       <div className="col-span-3 overflow-hidden">
         <Card className="h-full bg-gradient-card p-4 flex flex-col overflow-hidden">
           <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
@@ -94,41 +128,6 @@ export default function Script() {
               </Card>
             </div>
           </ScrollArea>
-        </Card>
-      </div>
-
-      {/* Right Column - Editor */}
-      <div className="col-span-6 overflow-hidden">
-        <Card className="h-full bg-gradient-card p-6 flex flex-col overflow-hidden">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold">脚本编辑器</h3>
-            <div className="flex gap-2">
-              <Button size="sm" variant="outline">
-                保存草稿
-              </Button>
-              <Button size="sm" className="bg-gradient-primary">
-                <Send className="w-4 h-4 mr-2" />
-                提交审核
-              </Button>
-            </div>
-          </div>
-
-          <Textarea
-            placeholder="开始撰写你的脚本..."
-            className="flex-1 min-h-0 bg-secondary border-border font-mono resize-none"
-            defaultValue={`# 产品介绍脚本
-
-## 开场白
-大家好，今天给大家带来一款革命性的AI工具...
-
-## 核心卖点
-1. 提升效率300%
-2. 零门槛上手
-3. 智能化创作
-
-## 使用场景
-适合内容创作者、营销人员、企业团队...`}
-          />
         </Card>
       </div>
       </div>

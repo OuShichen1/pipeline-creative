@@ -88,9 +88,10 @@ export default function Script() {
   return (
     <div className="flex flex-col gap-4 h-full overflow-hidden p-4">
       <div className="grid grid-cols-12 gap-4 flex-1 min-h-0 overflow-hidden">
-      {/* Left Column - AI脚本生成 */}
-      <div className="col-span-3 overflow-hidden">
-        <Card className="h-full bg-gradient-card p-4 flex flex-col overflow-hidden">
+      {/* Left Column - AI脚本生成 + 脚本草稿箱 */}
+      <div className="col-span-3 overflow-hidden flex flex-col gap-4">
+        {/* AI脚本生成 */}
+        <Card className="flex-1 bg-gradient-card p-4 flex flex-col overflow-hidden">
           <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-primary" />
             AI脚本生成
@@ -191,6 +192,32 @@ export default function Script() {
                   生成
                 </Button>
               </Card>
+            </div>
+          </ScrollArea>
+        </Card>
+
+        {/* 脚本草稿箱 */}
+        <Card className="flex-1 bg-gradient-card p-4 flex flex-col overflow-hidden">
+          <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
+            <FolderOpen className="w-4 h-4 text-primary" />
+            脚本草稿箱
+          </h3>
+
+          <ScrollArea className="flex-1 min-h-0">
+            <div className="space-y-2 pr-4">
+              {[1, 2, 3].map((draft) => (
+                <Card key={draft} className="p-3 bg-secondary hover:bg-secondary/80 cursor-pointer transition-colors">
+                  <div className="flex items-start gap-2">
+                    <FileText className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-xs font-medium mb-1 truncate">草稿 {draft}</h4>
+                      <p className="text-xs text-muted-foreground line-clamp-2">
+                        脚本内容预览...
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              ))}
             </div>
           </ScrollArea>
         </Card>

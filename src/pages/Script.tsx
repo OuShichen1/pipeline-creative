@@ -5,8 +5,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
 
 export default function Script() {
+  const [selectedLanguage, setSelectedLanguage] = useState<"英语" | "西班牙语" | "粤语">("英语");
   return (
     <div className="flex flex-col gap-4 h-full overflow-hidden p-4">
       <div className="grid grid-cols-12 gap-4 flex-1 min-h-0 overflow-hidden">
@@ -84,13 +86,34 @@ export default function Script() {
               </div>
 
               <div className="flex items-center border-b border-border">
-                <button className="px-3 py-2 text-sm font-medium border-b-2 border-primary text-primary">
+                <button 
+                  onClick={() => setSelectedLanguage("英语")}
+                  className={`px-3 py-2 text-sm font-medium transition-colors ${
+                    selectedLanguage === "英语" 
+                      ? "border-b-2 border-primary text-primary" 
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
                   英语
                 </button>
-                <button className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground">
+                <button 
+                  onClick={() => setSelectedLanguage("西班牙语")}
+                  className={`px-3 py-2 text-sm font-medium transition-colors ${
+                    selectedLanguage === "西班牙语" 
+                      ? "border-b-2 border-primary text-primary" 
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
                   西班牙语
                 </button>
-                <button className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground">
+                <button 
+                  onClick={() => setSelectedLanguage("粤语")}
+                  className={`px-3 py-2 text-sm font-medium transition-colors ${
+                    selectedLanguage === "粤语" 
+                      ? "border-b-2 border-primary text-primary" 
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
                   粤语
                 </button>
               </div>

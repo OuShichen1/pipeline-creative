@@ -72,14 +72,17 @@ export default function Script() {
       {/* Middle Column - Editor */}
       <div className="col-span-6 overflow-hidden">
         <Card className="h-full bg-gradient-card p-6 flex flex-col overflow-hidden">
-          <h3 className="text-lg font-semibold mb-4">脚本编辑器</h3>
+          <h3 className="text-lg font-semibold mb-6">脚本编辑器</h3>
 
-          <div className="grid grid-cols-2 gap-4 flex-1 min-h-0">
-            <div className="flex flex-col gap-2">
-              <h4 className="text-sm font-medium">中文</h4>
+          <div className="grid grid-cols-2 gap-6 flex-1 min-h-0">
+            {/* 中文编辑区 */}
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center justify-between">
+                <h4 className="text-sm font-semibold">中文脚本</h4>
+              </div>
               <Textarea
                 placeholder="开始撰写你的脚本..."
-                className="flex-1 min-h-0 bg-secondary border-border font-mono resize-none"
+                className="flex-1 min-h-0 bg-secondary border-border font-mono resize-none text-sm leading-relaxed p-4"
                 defaultValue={`# 产品介绍脚本
 
 ## 开场白
@@ -93,33 +96,37 @@ export default function Script() {
 ## 使用场景
 适合内容创作者、营销人员、企业团队...`}
               />
-              <div className="flex items-center gap-2 pt-2">
+              <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg border border-border">
                 <Globe className="w-4 h-4 text-primary shrink-0" />
-                <select className="flex-1 p-2 text-xs rounded bg-background border border-border">
+                <select className="flex-1 px-3 py-2 text-sm rounded-md bg-background border border-border focus:outline-none focus:ring-2 focus:ring-primary/20">
                   <option>英语</option>
                   <option>西班牙语</option>
                   <option>粤语</option>
                 </select>
-                <Button size="default" className="bg-gradient-primary">
+                <Button size="default" className="bg-gradient-primary shrink-0">
                   本地化翻译
                 </Button>
               </div>
             </div>
 
-            <div className="flex flex-col gap-2">
-              <h4 className="text-sm font-medium">本地化翻译</h4>
+            {/* 翻译结果区 */}
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center justify-between">
+                <h4 className="text-sm font-semibold">本地化翻译</h4>
+              </div>
               <Textarea
                 placeholder="翻译后的脚本将显示在这里..."
-                className="flex-1 min-h-0 bg-secondary border-border font-mono resize-none"
+                className="flex-1 min-h-0 bg-secondary border-border font-mono resize-none text-sm leading-relaxed p-4"
               />
+              <div className="h-[52px]"></div>
             </div>
           </div>
 
-          <div className="flex gap-2 justify-end mt-4">
-            <Button size="sm" variant="outline">
+          <div className="flex gap-3 justify-end mt-6 pt-4 border-t border-border">
+            <Button size="default" variant="outline">
               保存草稿
             </Button>
-            <Button size="sm" className="bg-gradient-primary">
+            <Button size="default" className="bg-gradient-primary">
               <Send className="w-4 h-4 mr-2" />
               提交审核
             </Button>

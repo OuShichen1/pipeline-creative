@@ -118,27 +118,63 @@ export default function Topic() {
             </Button>
           </div>
 
-          <div className="space-y-2">
-            {[1, 2, 3].map((i) => (
-              <Card key={i} className="p-3 bg-secondary hover:bg-secondary/70 cursor-move">
-                <div className="flex items-start justify-between mb-1">
-                  <p className="text-xs font-medium line-clamp-2">
-                    AI工具测评 - 提升效率300%
-                  </p>
-                  <Badge variant="outline" className="ml-2 text-xs shrink-0">
-                    待处理
-                  </Badge>
-                </div>
-                <p className="text-xs text-muted-foreground">添加于 3小时前</p>
-              </Card>
-            ))}
+          <Tabs defaultValue="template" className="h-full flex flex-col">
+            <TabsList className="bg-secondary mb-3">
+              <TabsTrigger value="template">模板</TabsTrigger>
+              <TabsTrigger value="topic">选题</TabsTrigger>
+              <TabsTrigger value="benefit">利益点</TabsTrigger>
+            </TabsList>
 
-            <div className="pt-4 text-center">
-              <p className="text-xs text-muted-foreground">
-                从左侧拖拽灵感添加到选题板
-              </p>
+            <div className="flex-1 overflow-y-auto">
+              <TabsContent value="template" className="space-y-2 mt-0">
+                {[1, 2, 3].map((i) => (
+                  <Card key={i} className="p-3 bg-secondary hover:bg-secondary/70 cursor-move">
+                    <div className="flex items-start justify-between mb-1">
+                      <p className="text-xs font-medium line-clamp-2">
+                        AI工具测评模板 {i}
+                      </p>
+                      <Badge variant="outline" className="ml-2 text-xs shrink-0">
+                        模板
+                      </Badge>
+                    </div>
+                    <p className="text-xs text-muted-foreground">添加于 {i}小时前</p>
+                  </Card>
+                ))}
+              </TabsContent>
+
+              <TabsContent value="topic" className="space-y-2 mt-0">
+                {[1, 2, 3].map((i) => (
+                  <Card key={i} className="p-3 bg-secondary hover:bg-secondary/70 cursor-move">
+                    <div className="flex items-start justify-between mb-1">
+                      <p className="text-xs font-medium line-clamp-2">
+                        AI工具测评 - 提升效率300%
+                      </p>
+                      <Badge variant="outline" className="ml-2 text-xs shrink-0">
+                        待处理
+                      </Badge>
+                    </div>
+                    <p className="text-xs text-muted-foreground">添加于 {i}小时前</p>
+                  </Card>
+                ))}
+              </TabsContent>
+
+              <TabsContent value="benefit" className="space-y-2 mt-0">
+                {[1, 2].map((i) => (
+                  <Card key={i} className="p-3 bg-secondary hover:bg-secondary/70 cursor-move">
+                    <div className="flex items-start justify-between mb-1">
+                      <p className="text-xs font-medium line-clamp-2">
+                        提升效率、降低成本、简化流程
+                      </p>
+                      <Badge variant="outline" className="ml-2 text-xs shrink-0">
+                        利益点
+                      </Badge>
+                    </div>
+                    <p className="text-xs text-muted-foreground">添加于 {i}小时前</p>
+                  </Card>
+                ))}
+              </TabsContent>
             </div>
-          </div>
+          </Tabs>
         </Card>
       </div>
     </div>

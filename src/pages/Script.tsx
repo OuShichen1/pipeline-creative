@@ -97,11 +97,11 @@ export default function Script() {
                 <Globe className="w-4 h-4 text-primary shrink-0" />
                 <select className="flex-1 p-2 text-xs rounded bg-background border border-border">
                   <option>英语</option>
-                  <option>日语</option>
-                  <option>韩语</option>
+                  <option>西班牙语</option>
+                  <option>粤语</option>
                 </select>
-                <Button size="sm" className="bg-gradient-primary">
-                  翻译
+                <Button size="default" className="bg-gradient-primary">
+                  本地化翻译
                 </Button>
               </div>
             </div>

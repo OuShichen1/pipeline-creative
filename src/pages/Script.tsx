@@ -34,11 +34,32 @@ export default function Script() {
                   </Button>
                 </div>
                 
-                <h4 className="text-xs font-medium mb-2">产品卖点生成话术</h4>
-                <Textarea
-                  placeholder="输入产品卖点..."
-                  className="text-xs mb-2 min-h-[60px] bg-background"
-                />
+                <h4 className="text-xs font-medium mb-2">模板选项</h4>
+                <div className="grid grid-cols-1 gap-2 mb-3">
+                  <Button size="sm" variant="outline" className="text-xs">
+                    模板1
+                  </Button>
+                  <Button size="sm" variant="outline" className="text-xs">
+                    模板2
+                  </Button>
+                  <Button size="sm" variant="outline" className="text-xs">
+                    模板3
+                  </Button>
+                </div>
+
+                <h4 className="text-xs font-medium mb-2">利益点选项</h4>
+                <div className="grid grid-cols-1 gap-2 mb-3">
+                  <Button size="sm" variant="outline" className="text-xs">
+                    利益点1
+                  </Button>
+                  <Button size="sm" variant="outline" className="text-xs">
+                    利益点2
+                  </Button>
+                  <Button size="sm" variant="outline" className="text-xs">
+                    利益点3
+                  </Button>
+                </div>
+
                 <Button size="sm" className="w-full bg-gradient-primary">
                   生成
                 </Button>
@@ -53,10 +74,13 @@ export default function Script() {
         <Card className="h-full bg-gradient-card p-6 flex flex-col overflow-hidden">
           <h3 className="text-lg font-semibold mb-4">脚本编辑器</h3>
 
-          <Textarea
-            placeholder="开始撰写你的脚本..."
-            className="flex-1 min-h-0 bg-secondary border-border font-mono resize-none"
-            defaultValue={`# 产品介绍脚本
+          <div className="grid grid-cols-2 gap-4 flex-1 min-h-0">
+            <div className="flex flex-col gap-2">
+              <h4 className="text-sm font-medium">中文</h4>
+              <Textarea
+                placeholder="开始撰写你的脚本..."
+                className="flex-1 min-h-0 bg-secondary border-border font-mono resize-none"
+                defaultValue={`# 产品介绍脚本
 
 ## 开场白
 大家好，今天给大家带来一款革命性的AI工具...
@@ -68,7 +92,17 @@ export default function Script() {
 
 ## 使用场景
 适合内容创作者、营销人员、企业团队...`}
-          />
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <h4 className="text-sm font-medium">本地化翻译</h4>
+              <Textarea
+                placeholder="翻译后的脚本将显示在这里..."
+                className="flex-1 min-h-0 bg-secondary border-border font-mono resize-none"
+              />
+            </div>
+          </div>
 
           <div className="flex gap-2 justify-end mt-4">
             <Button size="sm" variant="outline">
@@ -90,8 +124,7 @@ export default function Script() {
             <AlertTriangle className="w-4 h-4 text-destructive" />
             风险提示
           </h3>
-          <ScrollArea className="h-[80px]">
-            <div className="grid grid-cols-1 gap-3 pr-4">
+          <div className="space-y-3">
               {[
                 { 
                   level: "高", 
@@ -133,8 +166,7 @@ export default function Script() {
                   )}
                 </div>
               ))}
-            </div>
-          </ScrollArea>
+          </div>
         </Card>
 
         {/* AI脚本审核 */}
@@ -146,6 +178,21 @@ export default function Script() {
 
           <ScrollArea className="flex-1 min-h-0">
             <div className="space-y-3 pr-4">
+              <Card className="p-3 bg-secondary">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    <h4 className="text-xs font-medium mb-1">AI事实核查</h4>
+                    <p className="text-xs text-muted-foreground mb-2">
+                      检查脚本中的事实准确性
+                    </p>
+                    <Button size="sm" className="w-full bg-gradient-primary">
+                      开始核查
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+
               <Card className="p-3 bg-secondary">
                 <div className="flex items-start gap-2">
                   <Globe className="w-4 h-4 text-primary shrink-0 mt-0.5" />
@@ -161,21 +208,6 @@ export default function Script() {
                     </select>
                     <Button size="sm" className="w-full bg-gradient-primary">
                       翻译
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-3 bg-secondary">
-                <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-                  <div className="flex-1">
-                    <h4 className="text-xs font-medium mb-1">AI事实核查</h4>
-                    <p className="text-xs text-muted-foreground mb-2">
-                      检查脚本中的事实准确性
-                    </p>
-                    <Button size="sm" className="w-full bg-gradient-primary">
-                      开始核查
                     </Button>
                   </div>
                 </div>

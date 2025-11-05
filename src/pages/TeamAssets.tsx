@@ -39,6 +39,23 @@ export default function TeamAssets() {
   return (
     <div className="h-full overflow-y-auto">
       <div className="flex flex-col gap-4 p-4">
+      {/* 欢迎板块 */}
+      <Card className="bg-gradient-to-r from-primary/10 via-primary/5 to-background border-primary/20 p-8">
+        <div className="flex items-center gap-4">
+          <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10">
+            <Sparkles className="w-8 h-8 text-primary" />
+          </div>
+          <div className="flex-1">
+            <h1 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+              欢迎使用 AI 内容中台
+            </h1>
+            <p className="text-muted-foreground">
+              智能化内容创作与管理平台，助力团队高效产出优质内容
+            </p>
+          </div>
+        </div>
+      </Card>
+
       {/* 团队知识库 */}
       <Card className="bg-gradient-card p-6">
         <h3 className="text-xl font-bold mb-3 flex items-center gap-2">

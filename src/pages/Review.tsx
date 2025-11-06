@@ -1,11 +1,54 @@
-import { CheckCircle, XCircle, Clock, MessageSquare, Play } from "lucide-react";
+import { CheckCircle, Clock, MessageSquare, Play, Loader2, Sparkles } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Review() {
+  const [aiAnalysis, setAiAnalysis] = useState<string>("");
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const { toast } = useToast();
+
+  const handleStartReview = async () => {
+    setIsAnalyzing(true);
+    setAiAnalysis("");
+
+    try {
+      const { data, error } = await supabase.functions.invoke("analyze-content", {
+        body: {
+          contentType: "video",
+          title: "产品A推广视频",
+          metadata: {
+            duration: "1:30",
+            resolution: "1920x1080",
+            format: "MP4",
+          },
+        },
+      });
+
+      if (error) throw error;
+
+      if (data?.analysis) {
+        setAiAnalysis(data.analysis);
+        toast({
+          title: "AI分析完成",
+          description: "已生成审核意见",
+        });
+      }
+    } catch (error) {
+      console.error("AI分析错误:", error);
+      toast({
+        title: "分析失败",
+        description: error instanceof Error ? error.message : "无法完成AI分析",
+        variant: "destructive",
+      });
+    } finally {
+      setIsAnalyzing(false);
+    }
+  };
   return (
     <div className="grid grid-cols-12 gap-4 h-full">
       {/* Left Column - Review Queue */}
@@ -125,17 +168,45 @@ export default function Review() {
 
           <div className="space-y-4">
             <div>
-              <label className="text-xs font-medium mb-2 block">审核意见</label>
-              <Textarea
-                placeholder="请输入您的审核意见和修改建议..."
-                className="min-h-[120px] bg-secondary text-xs"
-              />
+              <label className="text-xs font-medium mb-2 block flex items-center gap-1">
+                <Sparkles className="w-3 h-3 text-primary" />
+                AI审核意见
+              </label>
+              <Card className="min-h-[200px] bg-secondary p-3">
+                {isAnalyzing ? (
+                  <div className="flex flex-col items-center justify-center h-full py-8">
+                    <Loader2 className="w-8 h-8 text-primary animate-spin mb-2" />
+                    <p className="text-xs text-muted-foreground">AI正在分析中...</p>
+                  </div>
+                ) : aiAnalysis ? (
+                  <ScrollArea className="h-[180px]">
+                    <div className="text-xs whitespace-pre-wrap pr-4">{aiAnalysis}</div>
+                  </ScrollArea>
+                ) : (
+                  <div className="flex items-center justify-center h-full text-xs text-muted-foreground">
+                    点击"开始审核"以获取AI分析结果
+                  </div>
+                )}
+              </Card>
             </div>
 
             <div className="space-y-2">
-              <Button className="w-full bg-gradient-primary shadow-glow">
-                <CheckCircle className="w-4 h-4 mr-2" />
-                开始审核
+              <Button 
+                className="w-full bg-gradient-primary shadow-glow"
+                onClick={handleStartReview}
+                disabled={isAnalyzing}
+              >
+                {isAnalyzing ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    分析中...
+                  </>
+                ) : (
+                  <>
+                    <CheckCircle className="w-4 h-4 mr-2" />
+                    开始审核
+                  </>
+                )}
               </Button>
             </div>
 

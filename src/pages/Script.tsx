@@ -322,7 +322,7 @@ Tell me in the comments`
                 保存至草稿箱
               </Button>
               <Button size="default" variant="outline">
-                复制外语脚本
+                复制双语脚本
               </Button>
             </div>
           </Card>

@@ -8,9 +8,12 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* ByteDance-style clean interface */
+    /* ByteDance-style clean interface with gradient background */
     --background: 0 0% 98%;
     --foreground: 220 13% 13%;
+    
+    /* Gradient background */
+    --gradient-background: linear-gradient(135deg, hsl(217 100% 97%) 0%, hsl(210 100% 98%) 50%, hsl(200 100% 98%) 100%);
 
     --card: 0 0% 100%;
     --card-foreground: 220 13% 13%;
@@ -66,7 +69,9 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground text-sm;
+    @apply text-foreground text-sm;
+    background: var(--gradient-background);
+    background-attachment: fixed;
     font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "SimHei", "黑体", -apple-system, BlinkMacSystemFont, sans-serif;
   }
 }

@@ -66,6 +66,7 @@ export default {
         'gradient-primary': 'var(--gradient-primary)',
         'gradient-soft': 'var(--gradient-soft)',
         'gradient-card': 'var(--gradient-card)',
+        'gradient-background': 'var(--gradient-background)',
       },
       boxShadow: {
         'card': 'var(--shadow-card)',

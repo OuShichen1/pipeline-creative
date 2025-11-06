@@ -153,10 +153,41 @@ Tell me in the comments`
     if (selected.trim().length > 0) {
       setSelectedText(selected);
       
-      // Calculate position
+      // Get the textarea's bounding box
       const rect = textarea.getBoundingClientRect();
-      const x = rect.left + (rect.width / 2);
-      const y = rect.top;
+      
+      // Create a temporary div to measure text position
+      const div = document.createElement('div');
+      const computed = window.getComputedStyle(textarea);
+      
+      // Copy styles from textarea to div
+      div.style.position = 'absolute';
+      div.style.visibility = 'hidden';
+      div.style.whiteSpace = 'pre-wrap';
+      div.style.wordWrap = 'break-word';
+      div.style.font = computed.font;
+      div.style.padding = computed.padding;
+      div.style.width = computed.width;
+      div.style.lineHeight = computed.lineHeight;
+      
+      document.body.appendChild(div);
+      
+      // Get text before selection
+      const textBeforeSelection = textarea.value.substring(0, textarea.selectionStart);
+      div.textContent = textBeforeSelection;
+      
+      // Create a span for the end of selection
+      const span = document.createElement('span');
+      span.textContent = selected || '.';
+      div.appendChild(span);
+      
+      const spanRect = span.getBoundingClientRect();
+      
+      // Calculate position relative to viewport
+      const x = spanRect.left + (spanRect.width / 2);
+      const y = spanRect.top - 5; // Slightly above the selected text
+      
+      document.body.removeChild(div);
       
       setSelectionPosition({ x, y });
       setShowToolbar(true);

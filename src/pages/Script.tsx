@@ -8,6 +8,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { TextSelectionToolbar } from "@/components/TextSelectionToolbar";
 
 export default function Script() {
   const [selectedLanguage, setSelectedLanguage] = useState<"英语" | "西语" | "粤语">("英语");
@@ -37,6 +38,11 @@ export default function Script() {
   const [isDraftDialogOpen, setIsDraftDialogOpen] = useState(false);
   const { toast } = useToast();
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const [selectedText, setSelectedText] = useState("");
+  const [selectionPosition, setSelectionPosition] = useState({ x: 0, y: 0 });
+  const [showToolbar, setShowToolbar] = useState(false);
+  const [isPolishing, setIsPolishing] = useState(false);
   
   const canGenerate = selectedTopic !== null && selectedTemplate !== null && selectedBenefit !== null;
 
@@ -134,6 +140,92 @@ Tell me in the comments`
       }
     };
   }, [chineseText, selectedLanguage]);
+
+  const handleTextSelection = () => {
+    const textarea = textareaRef.current;
+    if (!textarea) return;
+
+    const selected = textarea.value.substring(
+      textarea.selectionStart,
+      textarea.selectionEnd
+    );
+
+    if (selected.trim().length > 0) {
+      setSelectedText(selected);
+      
+      // Calculate position
+      const rect = textarea.getBoundingClientRect();
+      const x = rect.left + (rect.width / 2);
+      const y = rect.top;
+      
+      setSelectionPosition({ x, y });
+      setShowToolbar(true);
+    } else {
+      setShowToolbar(false);
+    }
+  };
+
+  const handlePolish = async (text: string) => {
+    setIsPolishing(true);
+    setShowToolbar(false);
+
+    try {
+      const { data, error } = await supabase.functions.invoke("polish-text", {
+        body: { text }
+      });
+
+      if (error) {
+        console.error("Polish error:", error);
+        toast({
+          title: "润色失败",
+          description: error.message || "请稍后重试",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (data?.polishedText) {
+        // Replace selected text with polished version
+        const textarea = textareaRef.current;
+        if (textarea) {
+          const start = textarea.selectionStart;
+          const end = textarea.selectionEnd;
+          const newText = 
+            chineseText.substring(0, start) +
+            data.polishedText +
+            chineseText.substring(end);
+          
+          setChineseText(newText);
+          
+          toast({
+            title: "润色成功",
+            description: "文本已优化",
+          });
+        }
+      }
+    } catch (error) {
+      console.error("Polish error:", error);
+      toast({
+        title: "润色失败",
+        description: "请检查网络连接后重试",
+        variant: "destructive",
+      });
+    } finally {
+      setIsPolishing(false);
+    }
+  };
+
+  // Hide toolbar when clicking outside
+  useEffect(() => {
+    const handleClickOutside = () => {
+      setShowToolbar(false);
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col gap-4 h-full overflow-hidden p-4">
@@ -294,12 +386,24 @@ Tell me in the comments`
               {/* Editor Areas */}
               <div className="grid grid-cols-2 gap-4 flex-1 min-h-0">
                 {/* Source Text */}
-                <Textarea
-                  placeholder="开始撰写你的脚本..."
-                  className="flex-1 min-h-0 bg-background border-border resize-none text-base leading-relaxed p-4"
-                  value={chineseText}
-                  onChange={(e) => setChineseText(e.target.value)}
-                />
+                <div className="relative">
+                  <Textarea
+                    ref={textareaRef}
+                    placeholder="开始撰写你的脚本..."
+                    className="flex-1 min-h-0 bg-background border-border resize-none text-base leading-relaxed p-4 h-full"
+                    value={chineseText}
+                    onChange={(e) => setChineseText(e.target.value)}
+                    onMouseUp={handleTextSelection}
+                    onKeyUp={handleTextSelection}
+                    disabled={isPolishing}
+                  />
+                  <TextSelectionToolbar
+                    selectedText={selectedText}
+                    position={selectionPosition}
+                    onPolish={handlePolish}
+                    isVisible={showToolbar}
+                  />
+                </div>
 
                 {/* Translation Result */}
                 <div className="flex flex-col bg-secondary/30 rounded-lg border border-border">

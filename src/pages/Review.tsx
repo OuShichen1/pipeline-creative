@@ -150,11 +150,7 @@ export default function Review() {
             <div className="space-y-2">
               <Button className="w-full bg-gradient-primary shadow-glow">
                 <CheckCircle className="w-4 h-4 mr-2" />
-                通过审核
-              </Button>
-              <Button variant="destructive" className="w-full">
-                <XCircle className="w-4 h-4 mr-2" />
-                驳回（需修改）
+                开始审核
               </Button>
             </div>
 

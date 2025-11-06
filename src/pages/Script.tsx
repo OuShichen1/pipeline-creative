@@ -97,7 +97,7 @@ export default function Script() {
               AI脚本生成
             </h3>
 
-            <div className="space-y-3">
+            <div className="space-y-3 flex-1">
               <Card className="p-3 bg-secondary">
                 <h4 className="text-xs font-medium mb-2">选择选题</h4>
                 <div className="grid grid-cols-1 gap-2 mb-3">
@@ -152,6 +152,12 @@ export default function Script() {
                   生成
                 </Button>
               </Card>
+            </div>
+            
+            <div className="mt-3">
+              <Button size="sm" variant="outline" className="w-full text-xs">
+                返回上一版本
+              </Button>
             </div>
           </Card>
 
@@ -233,12 +239,20 @@ export default function Script() {
               {/* Editor Areas */}
               <div className="grid grid-cols-2 gap-4 flex-1 min-h-0">
                 {/* Source Text */}
-                <Textarea
-                  placeholder="开始撰写你的脚本..."
-                  className="flex-1 min-h-0 bg-background border-border resize-none text-base leading-relaxed p-4"
-                  value={chineseText}
-                  onChange={(e) => setChineseText(e.target.value)}
-                />
+                <div className="flex flex-col min-h-0">
+                  <Textarea
+                    placeholder="开始撰写你的脚本..."
+                    className="flex-1 min-h-0 bg-background border-border resize-none text-base leading-relaxed p-4"
+                    value={chineseText}
+                    onChange={(e) => setChineseText(e.target.value)}
+                  />
+                  <div className="mt-2">
+                    <Button size="sm" variant="outline" className="text-xs">
+                      <FolderOpen className="w-3 h-3 mr-1" />
+                      保存至草稿箱
+                    </Button>
+                  </div>
+                </div>
 
                 {/* Translation Result */}
                 <div className="flex flex-col bg-secondary/30 rounded-lg border border-border">
@@ -256,13 +270,6 @@ export default function Script() {
             </div>
 
             <div className="flex gap-3 justify-end mt-6 pt-4 border-t border-border">
-              <Button size="default" variant="outline">
-                <FolderOpen className="w-4 h-4 mr-2" />
-                保存至草稿箱
-              </Button>
-              <Button size="default" variant="outline">
-                返回上一版本
-              </Button>
               <Button size="default" variant="outline">
                 复制外语脚本
               </Button>

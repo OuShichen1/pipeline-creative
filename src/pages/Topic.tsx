@@ -79,8 +79,8 @@ export default function Topic() {
       </div>
 
       {/* Right Column - My Board */}
-      <div className="col-span-3">
-        <Card className="h-full bg-gradient-card p-4">
+      <div className="col-span-3 flex flex-col">
+        <Card className="flex-1 bg-gradient-card p-4 flex flex-col">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-semibold">我的选题板</h3>
             <Button size="sm" variant="ghost">
@@ -88,14 +88,14 @@ export default function Topic() {
             </Button>
           </div>
 
-          <Tabs defaultValue="template" className="h-full flex flex-col">
-            <TabsList className="bg-secondary mb-3">
+          <Tabs defaultValue="template" className="flex-1 flex flex-col min-h-0">
+            <TabsList className="bg-secondary mb-3 shrink-0">
               <TabsTrigger value="template">模板</TabsTrigger>
               <TabsTrigger value="topic">选题</TabsTrigger>
               <TabsTrigger value="benefit">利益点</TabsTrigger>
             </TabsList>
 
-            <div className="flex-1 overflow-y-auto">
+            <div className="flex-1 overflow-y-auto min-h-0">
               <TabsContent value="template" className="space-y-2 mt-0">
                 {[1, 2, 3].map((i) => (
                   <Card key={i} className="p-3 bg-secondary hover:bg-secondary/70 cursor-move">
@@ -146,7 +146,7 @@ export default function Topic() {
             </div>
           </Tabs>
 
-          <div className="mt-4">
+          <div className="mt-4 shrink-0">
             <Button 
               className="w-full bg-gradient-primary" 
               onClick={() => navigate('/script')}

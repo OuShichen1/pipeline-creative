@@ -1,4 +1,4 @@
-import { Search, TrendingUp, Database, AlertTriangle, Plus, CheckCircle2, ArrowRight, ExternalLink } from "lucide-react";
+import { Search, TrendingUp, Database, AlertTriangle, Plus, ArrowRight, ExternalLink } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -52,22 +52,8 @@ export default function Topic() {
   };
   return (
     <div className="grid grid-cols-12 gap-4 h-full">
-      {/* Left Column - Tools */}
-      <div className="col-span-3 space-y-4">
-        <Card className="p-4 bg-gradient-card">
-          <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-primary" />
-            AI 事实核查
-          </h3>
-          <Input placeholder="输入需要核查的内容..." className="bg-secondary mb-3" />
-          <Button size="sm" className="w-full bg-gradient-primary">
-            开始核查
-          </Button>
-        </Card>
-      </div>
-
       {/* Center Column - Content Feed */}
-      <div className="col-span-6">
+      <div className="col-span-9">
         <Card className="h-full bg-gradient-card">
           <Tabs defaultValue="uk" className="h-full flex flex-col">
             <div className="border-b border-border p-4">

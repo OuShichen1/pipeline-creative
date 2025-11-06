@@ -449,6 +449,32 @@ Tell me in the comments`
               </ScrollArea>
             </div>
           </div>
+          <div className="flex gap-3 justify-end pt-4 border-t border-border">
+            <Button 
+              variant="outline"
+              onClick={() => {
+                navigator.clipboard.writeText(draftData.chinese);
+                toast({
+                  title: "复制成功",
+                  description: "中文脚本已复制到剪贴板",
+                });
+              }}
+            >
+              复制中文脚本
+            </Button>
+            <Button 
+              variant="outline"
+              onClick={() => {
+                navigator.clipboard.writeText(draftData.english);
+                toast({
+                  title: "复制成功",
+                  description: "英文脚本已复制到剪贴板",
+                });
+              }}
+            >
+              复制英文脚本
+            </Button>
+          </div>
         </DialogContent>
       </Dialog>
     </div>

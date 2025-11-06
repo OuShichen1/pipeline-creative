@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -32,10 +33,54 @@ export default function Script() {
 评论区告诉我`);
   const [translatedText, setTranslatedText] = useState("");
   const [isTranslating, setIsTranslating] = useState(false);
+  const [selectedDraft, setSelectedDraft] = useState<number | null>(null);
+  const [isDraftDialogOpen, setIsDraftDialogOpen] = useState(false);
   const { toast } = useToast();
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
   
   const canGenerate = selectedTopic !== null && selectedTemplate !== null && selectedBenefit !== null;
+
+  const draftData = {
+    chinese: `火车站台间隙暗藏杀机
+坐火车一定要注意这个Mind the Gap!
+最大宽度能吞进成年人的小腿!
+别以为广播提醒是废话
+每年超2700人卡脚受伤
+三招防掉坑
+第一候车时双脚远离黄线至少半米
+第二上下车务必跨大步不踩间隙边缘
+如果遇到卡脚
+记住急救指南
+11月6日10:
+千万别挣扎等待救援即可
+第三
+在TrainPal搜staffx
+里面全是打折的火车票
+还有什么想知道的
+评论区告诉我`,
+    english: `The Platform Gap at Train Stations is a Hidden Danger
+When taking the train, pay attention to the Mind the Gap!
+The maximum width can swallow an adult's calf!
+Don't think the broadcast reminder is nonsense
+Over 2,700 people get their feet stuck every year
+Three tips to avoid falling in
+First, keep your feet at least half a meter away from the yellow line when waiting
+Second, take big steps when getting on and off, don't step on the gap edge
+If your foot gets stuck
+Remember the first aid guide
+November 6th 10:
+Never struggle, just wait for rescue
+Third
+Search staffx on TrainPal
+Full of discounted train tickets
+What else do you want to know?
+Tell me in the comments`
+  };
+
+  const handleDraftClick = (draftNumber: number) => {
+    setSelectedDraft(draftNumber);
+    setIsDraftDialogOpen(true);
+  };
 
   const translateText = async (text: string, language: string) => {
     if (!text.trim()) {
@@ -178,7 +223,11 @@ export default function Script() {
 
             <div className="flex-1 overflow-auto space-y-2">
               {[1, 2, 3, 4, 5, 6].map((draft) => (
-                <Card key={draft} className="p-3 bg-secondary hover:bg-secondary/80 cursor-pointer transition-colors">
+                <Card 
+                  key={draft} 
+                  className="p-3 bg-secondary hover:bg-secondary/80 cursor-pointer transition-colors"
+                  onClick={() => handleDraftClick(draft)}
+                >
                   <div className="flex items-start gap-2">
                     <FileText className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
                     <div className="flex-1 min-w-0">
@@ -375,6 +424,33 @@ export default function Script() {
           </Card>
         </div>
       </div>
+
+      {/* Draft Dialog */}
+      <Dialog open={isDraftDialogOpen} onOpenChange={setIsDraftDialogOpen}>
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-hidden flex flex-col">
+          <DialogHeader>
+            <DialogTitle>草稿 {selectedDraft} - 中外文对照</DialogTitle>
+          </DialogHeader>
+          <div className="grid grid-cols-2 gap-4 flex-1 overflow-hidden">
+            <div className="flex flex-col">
+              <h3 className="text-sm font-semibold mb-2 pb-2 border-b border-border">中文版本</h3>
+              <ScrollArea className="flex-1">
+                <div className="pr-4 text-sm whitespace-pre-wrap leading-relaxed">
+                  {draftData.chinese}
+                </div>
+              </ScrollArea>
+            </div>
+            <div className="flex flex-col">
+              <h3 className="text-sm font-semibold mb-2 pb-2 border-b border-border">英文版本</h3>
+              <ScrollArea className="flex-1">
+                <div className="pr-4 text-sm whitespace-pre-wrap leading-relaxed">
+                  {draftData.english}
+                </div>
+              </ScrollArea>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

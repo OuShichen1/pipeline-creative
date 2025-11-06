@@ -141,59 +141,41 @@ Tell me in the comments`
     };
   }, [chineseText, selectedLanguage]);
 
-  const handleTextSelection = () => {
+  const handleTextSelection = (e: React.MouseEvent | React.KeyboardEvent) => {
     const textarea = textareaRef.current;
     if (!textarea) return;
 
-    const selected = textarea.value.substring(
-      textarea.selectionStart,
-      textarea.selectionEnd
-    );
+    // Small delay to ensure selection is complete
+    setTimeout(() => {
+      const selected = textarea.value.substring(
+        textarea.selectionStart,
+        textarea.selectionEnd
+      );
 
-    if (selected.trim().length > 0) {
-      setSelectedText(selected);
-      
-      // Get the textarea's bounding box
-      const rect = textarea.getBoundingClientRect();
-      
-      // Create a temporary div to measure text position
-      const div = document.createElement('div');
-      const computed = window.getComputedStyle(textarea);
-      
-      // Copy styles from textarea to div
-      div.style.position = 'absolute';
-      div.style.visibility = 'hidden';
-      div.style.whiteSpace = 'pre-wrap';
-      div.style.wordWrap = 'break-word';
-      div.style.font = computed.font;
-      div.style.padding = computed.padding;
-      div.style.width = computed.width;
-      div.style.lineHeight = computed.lineHeight;
-      
-      document.body.appendChild(div);
-      
-      // Get text before selection
-      const textBeforeSelection = textarea.value.substring(0, textarea.selectionStart);
-      div.textContent = textBeforeSelection;
-      
-      // Create a span for the end of selection
-      const span = document.createElement('span');
-      span.textContent = selected || '.';
-      div.appendChild(span);
-      
-      const spanRect = span.getBoundingClientRect();
-      
-      // Calculate position relative to viewport
-      const x = spanRect.left + (spanRect.width / 2);
-      const y = spanRect.top - 5; // Slightly above the selected text
-      
-      document.body.removeChild(div);
-      
-      setSelectionPosition({ x, y });
-      setShowToolbar(true);
-    } else {
-      setShowToolbar(false);
-    }
+      if (selected.trim().length > 0) {
+        setSelectedText(selected);
+        
+        // Use mouse position for click events, or calculate from textarea for keyboard
+        let x: number;
+        let y: number;
+        
+        if ('clientX' in e && 'clientY' in e) {
+          // Mouse event - use cursor position
+          x = e.clientX;
+          y = e.clientY - 10;
+        } else {
+          // Keyboard event - use textarea position
+          const rect = textarea.getBoundingClientRect();
+          x = rect.left + rect.width / 2;
+          y = rect.top + 50;
+        }
+        
+        setSelectionPosition({ x, y });
+        setShowToolbar(true);
+      } else {
+        setShowToolbar(false);
+      }
+    }, 10);
   };
 
   const handlePolish = async (text: string) => {
@@ -425,7 +407,6 @@ Tell me in the comments`
                     value={chineseText}
                     onChange={(e) => setChineseText(e.target.value)}
                     onMouseUp={handleTextSelection}
-                    onKeyUp={handleTextSelection}
                     disabled={isPolishing}
                   />
                   <TextSelectionToolbar

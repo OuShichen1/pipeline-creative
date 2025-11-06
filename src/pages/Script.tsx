@@ -144,41 +144,48 @@ export default function Script() {
                   ))}
                 </div>
 
-                <Button 
-                  size="sm" 
-                  className="w-full bg-gradient-primary" 
-                  disabled={!canGenerate}
-                >
-                  生成
-                </Button>
+                <div className="space-y-2">
+                  <Button 
+                    size="sm" 
+                    className="w-full bg-gradient-primary" 
+                    disabled={!canGenerate}
+                  >
+                    AI生成
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    variant="outline"
+                    className="w-full text-xs"
+                  >
+                    返回上一版本
+                  </Button>
+                </div>
               </Card>
             </div>
           </Card>
 
           {/* 脚本草稿箱 */}
-          <Card className="bg-gradient-card p-4 flex flex-col h-64">
+          <Card className="bg-gradient-card p-4 flex flex-col flex-1 overflow-hidden">
             <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
               <FolderOpen className="w-4 h-4 text-primary" />
               脚本草稿箱
             </h3>
 
-            <ScrollArea className="flex-1">
-              <div className="space-y-2 pr-4">
-                {[1, 2, 3].map((draft) => (
-                  <Card key={draft} className="p-3 bg-secondary hover:bg-secondary/80 cursor-pointer transition-colors">
-                    <div className="flex items-start gap-2">
-                      <FileText className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
-                      <div className="flex-1 min-w-0">
-                        <h4 className="text-xs font-medium mb-1 truncate">草稿 {draft}</h4>
-                        <p className="text-xs text-muted-foreground line-clamp-2">
-                          脚本内容预览...
-                        </p>
-                      </div>
+            <div className="flex-1 overflow-auto space-y-2">
+              {[1, 2, 3, 4, 5, 6].map((draft) => (
+                <Card key={draft} className="p-3 bg-secondary hover:bg-secondary/80 cursor-pointer transition-colors">
+                  <div className="flex items-start gap-2">
+                    <FileText className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-xs font-medium mb-1 truncate">草稿 {draft}</h4>
+                      <p className="text-xs text-muted-foreground line-clamp-2">
+                        脚本内容预览...
+                      </p>
                     </div>
-                  </Card>
-                ))}
-              </div>
-            </ScrollArea>
+                  </div>
+                </Card>
+              ))}
+            </div>
           </Card>
         </div>
 
@@ -259,9 +266,6 @@ export default function Script() {
               <Button size="default" variant="outline">
                 <FolderOpen className="w-4 h-4 mr-2" />
                 保存至草稿箱
-              </Button>
-              <Button size="default" variant="outline">
-                返回上一版本
               </Button>
               <Button size="default" variant="outline">
                 复制外语脚本

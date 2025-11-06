@@ -56,28 +56,20 @@ export default function Review() {
         <Card className="h-full bg-gradient-card p-4">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-semibold">审核队列</h3>
-            <Badge variant="secondary">12 待审</Badge>
+            <Badge variant="secondary">8 待审</Badge>
           </div>
 
-          <div className="flex gap-2 mb-4">
-            <Button size="sm" variant="outline" className="text-xs flex-1">
-              全部
-            </Button>
-            <Button size="sm" variant="outline" className="text-xs flex-1">
-              脚本
-            </Button>
-            <Button size="sm" variant="outline" className="text-xs flex-1">
-              视频
-            </Button>
-          </div>
-
-          <ScrollArea className="h-[calc(100%-6rem)]">
+          <ScrollArea className="h-[calc(100%-4rem)]">
             <div className="space-y-2">
               {[
-                { type: "video", title: "产品A推广视频", user: "张三", time: "2小时前" },
-                { type: "script", title: "新品发布脚本", user: "李四", time: "3小时前" },
-                { type: "video", title: "活动宣传视频", user: "王五", time: "5小时前" },
-                { type: "script", title: "促销活动脚本", user: "赵六", time: "1天前" },
+                { title: "产品A推广视频", user: "张三", time: "2小时前" },
+                { title: "活动宣传视频", user: "王五", time: "5小时前" },
+                { title: "品牌故事短视频", user: "钱七", time: "8小时前" },
+                { title: "客户案例展示", user: "孙八", time: "12小时前" },
+                { title: "产品使用教程", user: "周九", time: "1天前" },
+                { title: "节日祝福视频", user: "吴十", time: "1天前" },
+                { title: "公司年会回顾", user: "郑十一", time: "2天前" },
+                { title: "新品预告片", user: "王十二", time: "2天前" },
               ].map((item, i) => (
                 <Card
                   key={i}
@@ -86,12 +78,6 @@ export default function Review() {
                   <div className="flex items-start justify-between mb-2">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
-                        <Badge
-                          variant={item.type === "video" ? "default" : "secondary"}
-                          className="text-xs"
-                        >
-                          {item.type === "video" ? "视频" : "脚本"}
-                        </Badge>
                         <Badge variant="outline" className="text-xs">
                           <Clock className="w-3 h-3 mr-1" />
                           待审核

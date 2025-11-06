@@ -79,7 +79,7 @@ export default function Review() {
           </div>
 
           {/* Video Preview */}
-          <div className="aspect-video bg-secondary rounded-lg flex items-center justify-center mb-4">
+          <div className="aspect-[9/16] max-w-md mx-auto bg-secondary rounded-lg flex items-center justify-center mb-4">
             <div className="text-center">
               <Play className="w-16 h-16 text-muted-foreground mx-auto mb-2" />
               <p className="text-sm text-muted-foreground">点击播放视频</p>
@@ -124,21 +124,6 @@ export default function Review() {
           </h3>
 
           <div className="space-y-4">
-            <Card className="p-3 bg-secondary">
-              <h4 className="text-xs font-medium mb-2">提交人信息</h4>
-              <div className="space-y-1 text-xs">
-                <p>
-                  <span className="text-muted-foreground">姓名：</span>张三
-                </p>
-                <p>
-                  <span className="text-muted-foreground">部门：</span>营销部
-                </p>
-                <p>
-                  <span className="text-muted-foreground">提交时间：</span>2小时前
-                </p>
-              </div>
-            </Card>
-
             <div>
               <label className="text-xs font-medium mb-2 block">审核意见</label>
               <Textarea

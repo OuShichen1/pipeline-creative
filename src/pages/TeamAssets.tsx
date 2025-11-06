@@ -311,9 +311,34 @@ export default function TeamAssets() {
             爆款内容拆解
           </h2>
           <Separator className="mb-6" />
-          <div className="bg-secondary/30 rounded-lg border-2 border-dashed border-primary/20 p-6 flex flex-col items-center justify-center flex-1 relative">
-            <Sparkles className="w-12 h-12 text-primary/50 mb-4" />
-            <p className="text-sm text-muted-foreground text-center">即将上线，敬请期待</p>
+          <div className="bg-secondary/30 rounded-lg border-2 border-dashed border-primary/20 p-6 flex flex-col flex-1 relative">
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="font-bold text-primary min-w-[80px]">结构</div>
+                <div className="font-bold text-primary">目标</div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <div className="font-semibold min-w-[80px]">开头钩子</div>
+                <div className="text-sm text-muted-foreground">吸引用户观看,提高视频的完播率和观看次数</div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="font-semibold min-w-[80px]">AROLL.英国出行小众冷知识</div>
+                <div className="text-sm text-muted-foreground">增强观众对视频的兴趣和信任的好奇小知识</div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="font-semibold min-w-[80px]">BROLL.植入产品利益点</div>
+                <div className="text-sm text-muted-foreground">减少促销优惠券的"硬推销"感,营造稀缺感,提高受众兴趣,增加流量。</div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="font-semibold min-w-[80px]">结尾引导</div>
+                <div className="text-sm text-muted-foreground">引导用户互动,增加视频播放时长和参与率</div>
+              </div>
+            </div>
+
             <div className="absolute bottom-6 right-6">
               <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                 <CheckCircle className="w-4 h-4 mr-2" />

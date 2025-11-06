@@ -66,14 +66,14 @@ export default function TeamAssets() {
         </h3>
         <Separator className="mb-4" />
         
-        {/* 选题分类 */}
+        {/* 模版分类 */}
         <div className="mb-6">
-          <h4 className="text-sm font-semibold text-primary mb-3">📝 选题</h4>
+          <h4 className="text-sm font-semibold text-primary mb-3">📋 模版</h4>
           <div className="grid grid-cols-3 gap-3">
             {[
-              { title: "🇬🇧英铁冷知识库", desc: "英国铁路相关知识" },
-              { title: "🇪🇸西铁冷知识库", desc: "西班牙铁路相关知识" },
-              { title: "🇭🇰中港铁冷知识库", desc: "中港铁路相关知识" },
+              { title: "🔥英铁爆款脚本", desc: "高播放量脚本合集" },
+              { title: "🔥西铁爆款脚本合集", desc: "精选爆款内容" },
+              { title: "🔥中港铁爆款脚本", desc: "中港铁热门脚本" },
             ].map((knowledge) => (
               <div key={knowledge.title} className="p-3 bg-secondary/50 rounded hover:bg-secondary cursor-pointer transition-colors">
                 <h5 className="font-medium text-sm mb-1">{knowledge.title}</h5>
@@ -83,14 +83,14 @@ export default function TeamAssets() {
           </div>
         </div>
 
-        {/* 模版分类 */}
+        {/* 选题分类 */}
         <div className="mb-6">
-          <h4 className="text-sm font-semibold text-primary mb-3">📋 模版</h4>
+          <h4 className="text-sm font-semibold text-primary mb-3">📝 选题</h4>
           <div className="grid grid-cols-3 gap-3">
             {[
-              { title: "🔥英铁爆款脚本", desc: "高播放量脚本合集" },
-              { title: "🔥西铁爆款脚本合集", desc: "精选爆款内容" },
-              { title: "🔥中港铁爆款脚本", desc: "中港铁热门脚本" },
+              { title: "🇬🇧英铁冷知识库", desc: "英国铁路相关知识" },
+              { title: "🇪🇸西铁冷知识库", desc: "西班牙铁路相关知识" },
+              { title: "🇭🇰中港铁冷知识库", desc: "中港铁路相关知识" },
             ].map((knowledge) => (
               <div key={knowledge.title} className="p-3 bg-secondary/50 rounded hover:bg-secondary cursor-pointer transition-colors">
                 <h5 className="font-medium text-sm mb-1">{knowledge.title}</h5>

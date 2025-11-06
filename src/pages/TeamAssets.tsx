@@ -305,13 +305,13 @@ export default function TeamAssets() {
         </Card>
 
         {/* 右侧：爆款内容拆解 - 独立板块 */}
-        <Card className="bg-gradient-card p-6">
+        <Card className="bg-gradient-card p-6 flex flex-col">
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-primary" />
             爆款内容拆解
           </h2>
           <Separator className="mb-6" />
-          <div className="bg-secondary/30 rounded-lg border-2 border-dashed border-primary/20 p-6 flex flex-col items-center justify-center min-h-[500px] relative">
+          <div className="bg-secondary/30 rounded-lg border-2 border-dashed border-primary/20 p-6 flex flex-col items-center justify-center flex-1 relative">
             <Sparkles className="w-12 h-12 text-primary/50 mb-4" />
             <p className="text-sm text-muted-foreground text-center">即将上线，敬请期待</p>
             <div className="absolute bottom-6 right-6">

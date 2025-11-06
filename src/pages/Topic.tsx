@@ -6,8 +6,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface NewsItem {
   title: string;
@@ -25,10 +26,36 @@ export default function Topic() {
   const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isFactChecking, setIsFactChecking] = useState(false);
+  const [aiSuggestion, setAiSuggestion] = useState<string>("");
+  const [isLoadingSuggestion, setIsLoadingSuggestion] = useState(false);
 
-  const handleNewsClick = (news: NewsItem) => {
+  const handleNewsClick = async (news: NewsItem) => {
     setSelectedNews(news);
     setIsDialogOpen(true);
+    setAiSuggestion("");
+    setIsLoadingSuggestion(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('suggest-topic-angle', {
+        body: { 
+          newsTitle: news.title,
+          newsContent: news.content 
+        }
+      });
+
+      if (error) throw error;
+      
+      setAiSuggestion(data.suggestion);
+    } catch (error) {
+      console.error('Error getting AI suggestion:', error);
+      toast({
+        title: "获取AI建议失败",
+        description: error instanceof Error ? error.message : "请稍后重试",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoadingSuggestion(false);
+    }
   };
 
   const handleFactCheck = async () => {
@@ -397,6 +424,25 @@ export default function Topic() {
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {selectedNews?.content}
               </p>
+            </div>
+
+            <div className="border-t pt-4">
+              <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
+                <span className="text-primary">✨</span>
+                AI建议选题切入点
+              </h4>
+              {isLoadingSuggestion ? (
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
+                  AI正在分析新闻并生成建议...
+                </div>
+              ) : aiSuggestion ? (
+                <div className="text-sm text-muted-foreground leading-relaxed whitespace-pre-wrap bg-secondary/30 p-4 rounded-lg">
+                  {aiSuggestion}
+                </div>
+              ) : (
+                <p className="text-sm text-muted-foreground">暂无建议</p>
+              )}
             </div>
 
             <div className="flex items-center gap-2 pt-2 border-t">

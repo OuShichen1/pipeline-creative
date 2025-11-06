@@ -59,40 +59,40 @@ export default function TeamAssets() {
       </Card>
 
       {/* 团队知识库 */}
-      <Card className="bg-gradient-card p-6">
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-bold flex items-center gap-2">
-            <Users className="w-5 h-5 text-primary" />
+      <Card className="bg-gradient-card p-4">
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="text-lg font-bold flex items-center gap-2">
+            <Users className="w-4 h-4 text-primary" />
             团队知识库
           </h3>
-          <Button size="sm" variant="outline">
+          <Button size="sm" variant="outline" className="h-7 text-xs">
             管理知识库
           </Button>
         </div>
-        <Separator className="mb-6" />
+        <Separator className="mb-3" />
         
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-3">
           {/* 模版分类 */}
-          <Card className="bg-gradient-to-br from-primary/5 to-transparent border-primary/10 p-5">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                <FileText className="w-4 h-4 text-primary" />
+          <Card className="bg-gradient-to-br from-primary/5 to-transparent border-primary/10 p-3">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center">
+                <FileText className="w-3 h-3 text-primary" />
               </div>
-              <h4 className="font-semibold text-primary">模版库</h4>
+              <h4 className="text-sm font-semibold text-primary">模版库</h4>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               {[
                 { title: "🔥英铁爆款脚本", desc: "高播放量脚本合集", count: "12个" },
                 { title: "🔥西铁爆款脚本合集", desc: "精选爆款内容", count: "8个" },
                 { title: "🔥中港铁爆款脚本", desc: "中港铁热门脚本", count: "15个" },
               ].map((item) => (
-                <div key={item.title} className="p-3 bg-card/50 backdrop-blur-sm rounded-lg hover:bg-card/80 cursor-pointer transition-all border border-transparent hover:border-primary/20 hover:shadow-sm group">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h5 className="font-medium text-sm mb-1 group-hover:text-primary transition-colors">{item.title}</h5>
-                      <p className="text-xs text-muted-foreground">{item.desc}</p>
+                <div key={item.title} className="p-2 bg-card/50 backdrop-blur-sm rounded hover:bg-card/80 cursor-pointer transition-all border border-transparent hover:border-primary/20 hover:shadow-sm group">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex-1 min-w-0">
+                      <h5 className="font-medium text-xs mb-0.5 group-hover:text-primary transition-colors truncate">{item.title}</h5>
+                      <p className="text-[10px] text-muted-foreground truncate">{item.desc}</p>
                     </div>
-                    <Badge variant="secondary" className="text-xs">{item.count}</Badge>
+                    <Badge variant="secondary" className="text-[10px] h-4 px-1.5 shrink-0">{item.count}</Badge>
                   </div>
                 </div>
               ))}
@@ -100,26 +100,26 @@ export default function TeamAssets() {
           </Card>
 
           {/* 选题分类 */}
-          <Card className="bg-gradient-to-br from-primary/5 to-transparent border-primary/10 p-5">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Lightbulb className="w-4 h-4 text-primary" />
+          <Card className="bg-gradient-to-br from-primary/5 to-transparent border-primary/10 p-3">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center">
+                <Lightbulb className="w-3 h-3 text-primary" />
               </div>
-              <h4 className="font-semibold text-primary">选题库</h4>
+              <h4 className="text-sm font-semibold text-primary">选题库</h4>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               {[
                 { title: "🇬🇧英铁冷知识库", desc: "英国铁路相关知识", count: "25个" },
                 { title: "🇪🇸西铁冷知识库", desc: "西班牙铁路相关知识", count: "18个" },
                 { title: "🇭🇰中港铁冷知识库", desc: "中港铁路相关知识", count: "22个" },
               ].map((item) => (
-                <div key={item.title} className="p-3 bg-card/50 backdrop-blur-sm rounded-lg hover:bg-card/80 cursor-pointer transition-all border border-transparent hover:border-primary/20 hover:shadow-sm group">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h5 className="font-medium text-sm mb-1 group-hover:text-primary transition-colors">{item.title}</h5>
-                      <p className="text-xs text-muted-foreground">{item.desc}</p>
+                <div key={item.title} className="p-2 bg-card/50 backdrop-blur-sm rounded hover:bg-card/80 cursor-pointer transition-all border border-transparent hover:border-primary/20 hover:shadow-sm group">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex-1 min-w-0">
+                      <h5 className="font-medium text-xs mb-0.5 group-hover:text-primary transition-colors truncate">{item.title}</h5>
+                      <p className="text-[10px] text-muted-foreground truncate">{item.desc}</p>
                     </div>
-                    <Badge variant="secondary" className="text-xs">{item.count}</Badge>
+                    <Badge variant="secondary" className="text-[10px] h-4 px-1.5 shrink-0">{item.count}</Badge>
                   </div>
                 </div>
               ))}
@@ -127,26 +127,26 @@ export default function TeamAssets() {
           </Card>
 
           {/* 利益点分类 */}
-          <Card className="bg-gradient-to-br from-primary/5 to-transparent border-primary/10 p-5">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Target className="w-4 h-4 text-primary" />
+          <Card className="bg-gradient-to-br from-primary/5 to-transparent border-primary/10 p-3">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center">
+                <Target className="w-3 h-3 text-primary" />
               </div>
-              <h4 className="font-semibold text-primary">利益点库</h4>
+              <h4 className="text-sm font-semibold text-primary">利益点库</h4>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               {[
                 { title: "💰英铁钩子库", desc: "英铁钩子素材库", count: "30个" },
                 { title: "💰西铁钩子库", desc: "西铁钩子素材库", count: "24个" },
                 { title: "💰中港铁钩子库", desc: "中港铁钩子素材库", count: "28个" },
               ].map((item) => (
-                <div key={item.title} className="p-3 bg-card/50 backdrop-blur-sm rounded-lg hover:bg-card/80 cursor-pointer transition-all border border-transparent hover:border-primary/20 hover:shadow-sm group">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h5 className="font-medium text-sm mb-1 group-hover:text-primary transition-colors">{item.title}</h5>
-                      <p className="text-xs text-muted-foreground">{item.desc}</p>
+                <div key={item.title} className="p-2 bg-card/50 backdrop-blur-sm rounded hover:bg-card/80 cursor-pointer transition-all border border-transparent hover:border-primary/20 hover:shadow-sm group">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex-1 min-w-0">
+                      <h5 className="font-medium text-xs mb-0.5 group-hover:text-primary transition-colors truncate">{item.title}</h5>
+                      <p className="text-[10px] text-muted-foreground truncate">{item.desc}</p>
                     </div>
-                    <Badge variant="secondary" className="text-xs">{item.count}</Badge>
+                    <Badge variant="secondary" className="text-[10px] h-4 px-1.5 shrink-0">{item.count}</Badge>
                   </div>
                 </div>
               ))}
@@ -154,26 +154,26 @@ export default function TeamAssets() {
           </Card>
 
           {/* 团队提示词 - 新增板块 */}
-          <Card className="bg-gradient-to-br from-primary/5 to-transparent border-primary/10 p-5">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Zap className="w-4 h-4 text-primary" />
+          <Card className="bg-gradient-to-br from-primary/5 to-transparent border-primary/10 p-3">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center">
+                <Zap className="w-3 h-3 text-primary" />
               </div>
-              <h4 className="font-semibold text-primary">提示词库</h4>
+              <h4 className="text-sm font-semibold text-primary">提示词库</h4>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               {[
                 { title: "🤖AI脚本生成提示词", desc: "优化脚本生成效果", count: "6个" },
                 { title: "✨AI润色提示词", desc: "提升文案质量", count: "8个" },
                 { title: "🎯AI选题分析提示词", desc: "精准选题定位", count: "5个" },
               ].map((item) => (
-                <div key={item.title} className="p-3 bg-card/50 backdrop-blur-sm rounded-lg hover:bg-card/80 cursor-pointer transition-all border border-transparent hover:border-primary/20 hover:shadow-sm group">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h5 className="font-medium text-sm mb-1 group-hover:text-primary transition-colors">{item.title}</h5>
-                      <p className="text-xs text-muted-foreground">{item.desc}</p>
+                <div key={item.title} className="p-2 bg-card/50 backdrop-blur-sm rounded hover:bg-card/80 cursor-pointer transition-all border border-transparent hover:border-primary/20 hover:shadow-sm group">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex-1 min-w-0">
+                      <h5 className="font-medium text-xs mb-0.5 group-hover:text-primary transition-colors truncate">{item.title}</h5>
+                      <p className="text-[10px] text-muted-foreground truncate">{item.desc}</p>
                     </div>
-                    <Badge variant="secondary" className="text-xs">{item.count}</Badge>
+                    <Badge variant="secondary" className="text-[10px] h-4 px-1.5 shrink-0">{item.count}</Badge>
                   </div>
                 </div>
               ))}

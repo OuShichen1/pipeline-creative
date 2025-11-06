@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 const stages = [
   { id: "assets", label: "团队资产库", icon: Database, path: "/assets" },
-  { id: "topic", label: "选题", icon: Lightbulb, path: "/topic" },
+  { id: "topic", label: "构思", icon: Lightbulb, path: "/topic" },
   { id: "script", label: "脚本", icon: FileText, path: "/script" },
   { id: "production", label: "素材/制作", icon: Video, path: "/production" },
   { id: "review", label: "审核", icon: CheckCircle, path: "/review" },

@@ -71,7 +71,7 @@ export default function TeamAssets() {
         </div>
         <Separator className="mb-3" />
         
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-4 gap-3">
           {/* 模版分类 */}
           <Card className="bg-gradient-to-br from-primary/5 to-transparent border-primary/10 p-3">
             <div className="flex items-center gap-2 mb-2">

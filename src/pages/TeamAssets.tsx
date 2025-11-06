@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sparkles, Users, TrendingUp, Video, Play, Heart, MessageCircle } from "lucide-react";
+import { Sparkles, Users, TrendingUp, Video, Play, Heart, MessageCircle, CheckCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -311,9 +311,15 @@ export default function TeamAssets() {
             爆款内容拆解
           </h2>
           <Separator className="mb-6" />
-          <div className="bg-secondary/30 rounded-lg border-2 border-dashed border-primary/20 p-6 flex flex-col items-center justify-center min-h-[500px]">
+          <div className="bg-secondary/30 rounded-lg border-2 border-dashed border-primary/20 p-6 flex flex-col items-center justify-center min-h-[500px] relative">
             <Sparkles className="w-12 h-12 text-primary/50 mb-4" />
             <p className="text-sm text-muted-foreground text-center">即将上线，敬请期待</p>
+            <div className="absolute bottom-6 right-6">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                <CheckCircle className="w-4 h-4 mr-2" />
+                学会了，开始创作
+              </Button>
+            </div>
           </div>
         </Card>
       </div>

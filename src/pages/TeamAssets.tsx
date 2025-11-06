@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Sparkles, Users, TrendingUp, Video, Play, Heart, MessageCircle, CheckCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -10,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
 export default function TeamAssets() {
+  const navigate = useNavigate();
   const [selectedGroup, setSelectedGroup] = useState("英铁");
 
   // 爆款视频数据
@@ -340,7 +342,10 @@ export default function TeamAssets() {
             </div>
 
             <div className="absolute bottom-6 right-6">
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button 
+                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                onClick={() => navigate('/topic')}
+              >
                 <CheckCircle className="w-4 h-4 mr-2" />
                 学会了，开始创作
               </Button>

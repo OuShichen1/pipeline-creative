@@ -120,7 +120,7 @@ export default function Review() {
         <Card className="h-full bg-gradient-card p-4">
           <h3 className="text-sm font-semibold mb-4 flex items-center gap-2">
             <MessageSquare className="w-4 h-4 text-primary" />
-            审核操作
+            AI初审
           </h3>
 
           <div className="space-y-4">

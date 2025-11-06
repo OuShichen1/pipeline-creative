@@ -1,11 +1,13 @@
-import { Search, TrendingUp, Database, AlertTriangle, Plus, CheckCircle2 } from "lucide-react";
+import { Search, TrendingUp, Database, AlertTriangle, Plus, CheckCircle2, ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
+import { useNavigate } from "react-router-dom";
 
 export default function Topic() {
+  const navigate = useNavigate();
   return (
     <div className="grid grid-cols-12 gap-4 h-full">
       {/* Left Column - Tools */}
@@ -143,6 +145,16 @@ export default function Topic() {
               </TabsContent>
             </div>
           </Tabs>
+
+          <div className="mt-4">
+            <Button 
+              className="w-full bg-gradient-primary" 
+              onClick={() => navigate('/script')}
+            >
+              开始脚本撰写
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
         </Card>
       </div>
     </div>

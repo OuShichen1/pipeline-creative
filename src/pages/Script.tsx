@@ -13,18 +13,23 @@ export default function Script() {
   const [selectedTopic, setSelectedTopic] = useState<number | null>(null);
   const [selectedTemplate, setSelectedTemplate] = useState<number | null>(null);
   const [selectedBenefit, setSelectedBenefit] = useState<number | null>(null);
-  const [chineseText, setChineseText] = useState(`# 产品介绍脚本
-
-## 开场白
-大家好，今天给大家带来一款革命性的AI工具...
-
-## 核心卖点
-1. 提升效率300%
-2. 零门槛上手
-3. 智能化创作
-
-## 使用场景
-适合内容创作者、营销人员、企业团队...`);
+  const [chineseText, setChineseText] = useState(`火车站台间隙暗藏杀机
+坐火车一定要注意这个Mind the Gap!
+最大宽度能吞进成年人的小腿!
+别以为广播提醒是废话
+每年超2700人卡脚受伤
+三招防掉坑
+第一候车时双脚远离黄线至少半米
+第二上下车务必跨大步不踩间隙边缘
+如果遇到卡脚
+记住急救指南
+11月6日10:
+千万别挣扎等待救援即可
+第三
+在TrainPal搜staffx
+里面全是打折的火车票
+还有什么想知道的
+评论区告诉我`);
   const [translatedText, setTranslatedText] = useState("");
   const [isTranslating, setIsTranslating] = useState(false);
   const { toast } = useToast();

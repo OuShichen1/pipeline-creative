@@ -1,6 +1,17 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { Lightbulb, FileText, Video, CheckCircle, BarChart3, Database } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarTrigger,
+  useSidebar,
+} from "@/components/ui/sidebar";
 
 const stages = [
   { id: "assets", label: "团队资产库", icon: Database, path: "/assets" },
@@ -14,37 +25,43 @@ const stages = [
 export function PipelineNav() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { open } = useSidebar();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-card border-t border-border shadow-pipeline">
-      <div className="flex items-center justify-around h-20 px-4 max-w-7xl mx-auto">
-        {stages.map((stage, index) => {
-          const isActive = location.pathname === stage.path;
-          const Icon = stage.icon;
-
-          return (
-            <div key={stage.id} className="flex items-center flex-1">
-              <button
-                onClick={() => navigate(stage.path)}
-                className={cn(
-                  "flex flex-col items-center justify-center gap-[1px] w-full py-2 px-3 rounded-lg transition-all scale-90",
-                  "hover:bg-secondary/50",
-                  isActive
-                    ? "border-2 border-primary text-primary shadow-[0_0_15px_rgba(96,165,250,0.5),inset_0_0_15px_rgba(96,165,250,0.1)]"
-                    : "text-muted-foreground border-2 border-transparent"
-                )}
-              >
-                <Icon className={cn("w-8 h-8", isActive && "animate-pulse")} />
-                <span className="text-sm font-medium">{stage.label}</span>
-              </button>
-
-              {index < stages.length - 1 && (
-                <div className="w-8 h-px bg-border mx-2" />
-              )}
-            </div>
-          );
-        })}
+    <Sidebar className={cn(open ? "w-64" : "w-16")} collapsible="icon">
+      <div className="p-2">
+        <SidebarTrigger />
       </div>
-    </nav>
+      
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {stages.map((stage) => {
+                const isActive = location.pathname === stage.path;
+                const Icon = stage.icon;
+
+                return (
+                  <SidebarMenuItem key={stage.id}>
+                    <SidebarMenuButton
+                      onClick={() => navigate(stage.path)}
+                      isActive={isActive}
+                      tooltip={stage.label}
+                      className={cn(
+                        "transition-all",
+                        isActive && "bg-primary/10 text-primary font-semibold shadow-[0_0_10px_rgba(96,165,250,0.3)]"
+                      )}
+                    >
+                      <Icon className={cn("w-5 h-5", isActive && "animate-pulse")} />
+                      <span>{stage.label}</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+    </Sidebar>
   );
 }
